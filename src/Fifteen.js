@@ -47,7 +47,7 @@ if (page === 0){
             <h1> Games currently below $15</h1> 
             <button onClick={nextPage}> Next Page</button>
             {gameData.slice(0, arrayLength).map(function(gameNum, index){
-            return(<GameInfo data={gameNum} key={index} />)})}
+            return(<GameInfo data={gameNum} page={page} key={index} />)})}
         </div>
     )}
 else if (page > 0 && page < maxPageLength){
@@ -57,7 +57,7 @@ else if (page > 0 && page < maxPageLength){
            <button onClick={prevPage}>Previous Page</button> <button onClick={nextPage}> Next Page</button>
 
             {gameData.slice(0, arrayLength).map(function(gameNum, index){
-            return(<GameInfo data={gameNum} key={index} />)})}
+            return(<GameInfo data={gameNum}  page={page} key={index} />)})}
         </div>
     )
 }
@@ -67,7 +67,7 @@ else {
             <h1> Games currently below $15</h1>
             <button onClick={prevPage}>Previous Page</button> 
             {gameData.slice(0, arrayLength).map(function(gameNum, index){
-            return(<GameInfo data={gameNum} key={index} />)})}
+            return(<GameInfo data={gameNum}  page={page} key={index} />)})}
         </div>
     )
 }
