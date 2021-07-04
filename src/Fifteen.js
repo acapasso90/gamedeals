@@ -9,9 +9,10 @@ const [gameData, setGameData] = useState();
 const [maxPageLength, setMaxPageLength] = useState();
 const [page, setPage] = useState(0);
 
+
+
 function SetPrices(response){
 setMaxPageLength(response.headers["x-total-page-count"])
-console.log(response.data);
 setGameData(response.data);
 setArrayLength(response.data.length);
 setLoaded(true);
@@ -19,13 +20,13 @@ setLoaded(true);
 }
 
 function SearchPrices(){
-    let apiURL = `https://www.cheapshark.com/api/1.0/deals?upperPrice=15&pageSize=35&pageNumber=${page}`;
+    let apiURL = `https://www.cheapshark.com/api/1.0/deals?upperPrice=15&sortBy=Savings&pageSize=35&pageNumber=${page}`;
     axios.get(apiURL).then(SetPrices)
 
 }
 
 useEffect(() => {
-    let apiURL = `https://www.cheapshark.com/api/1.0/deals?upperPrice=15&pageSize=35&pageNumber=${page}`;
+    let apiURL = `https://www.cheapshark.com/api/1.0/deals?upperPrice=15&sortBy=Savings&pageSize=35&pageNumber=${page}`;
     axios.get(apiURL).then(SetPrices)
   }, [page]); 
 
