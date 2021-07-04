@@ -17,9 +17,8 @@ export default function GameInfo(props){
     const metaCriticRating = props.data.metacriticScore;
     const page = props.page;
     const steamID = props.data.steamAppID;
-    const formattedTitle = title.replace(' ', '_');
-    let steamURL = `https://store.steampowered.com/app/${steamID}/${formattedTitle}`;
-    if(steamID === null){steamURL = null;}
+    const formattedTitle = title.replace(/ /g, '_');
+
     const store = props.data.storeID;
 
 
@@ -36,33 +35,17 @@ export default function GameInfo(props){
         const metaCriticRating = props.data.metacriticScore;
         const page = props.page;
         const steamID = props.data.steamAppID;
-        const formattedTitle = title.replace(' ', '_');
+        const formattedTitle = title.replace(/ /g, '_');
         const steamURL = `https://store.steampowered.com/app/${steamID}/${formattedTitle}`;
         setLoaded(true);
       }, [props]); 
 
-if (!steamURL){
-return(
-    <div className="GameInfo">
-    <h2> {title} </h2>
-    <img src={thumb} alt={title} />
-    <StoreInfo data={store} />
-    <ul>
-        <li>Price: ${salePrice} / <span className="fullPrice"> Full Price ${fullPrice} </span></li>
-        <li>Currently {savings}% off</li>
-        <li> Steam Rating: {steamRatingSummary} / {steamRatingPercent}% out of {steamNumberOfRatings} ratings</li>
-        <li> Metacritic Rating: {metaCriticRating}% </li>
-    </ul>
-</div>
-)
-}
-   
-else return(
+    return(
     <div className="GameInfo">
         <h2> {title} </h2>
-        <img src={thumb} alt={title} />
-        <a href={steamURL} target="_blank"><button>Buy on Steam</button></a>
+        <img src={thumb} alt={title} /> <br/>
         <ul>
+        <li>   <StoreInfo data={store} title={formattedTitle} steam={steamID} /></li>
             <li>Price: ${salePrice} / <span className="fullPrice"> Full Price ${fullPrice} </span></li>
             <li>Currently {savings}% off</li>
             <li> Steam Rating: {steamRatingSummary} / {steamRatingPercent}% out of {steamNumberOfRatings} ratings</li>

@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.StoreInfo p {margin-top: 0;}
+.storeLogo {height: 40px;
+position: relative;
+top: 13px;}
 
 ul {list-style: none;
 margin: 0;

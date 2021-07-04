@@ -8,6 +8,8 @@ const [loaded, setLoaded] = useState(false);
 const [storeID, setStoreID] = useState('');
 const [storeData, setStoreData] = useState('');
 const [length, setLength] = useState('');
+let title = props.title;
+let steamID = props.steam;
 
 
 
@@ -29,11 +31,11 @@ useEffect(() => {
 
 if(loaded){
   return(
-        <div className="StoreInfo">
+        <span className="StoreInfo">
 
 {storeData.slice(0, length).map(function(gameNum, index){
-            return(<StoreData data={gameNum}  id={id} key={index} />)})}
-        </div>
+            return(<StoreData data={gameNum} steam={steamID} title={title}  id={id} key={index} />)})}
+        </span>
     )}
 else {searchStores();
  return "loading";}
