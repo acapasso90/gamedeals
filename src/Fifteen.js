@@ -55,8 +55,6 @@ if (page === 0){
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={() => setSort("Reviews")} id="dropdownLinkTwo" href="#/reviews"> Reviews </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={() => setSort("Store")} id="dropdownLinkTwo" href="#/store"> Store </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={() => setSort("Title")} id="dropdownLinkTwo" href="#/title"> Title </a> <br/>
-                <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={() => setSort("Release")} id="dropdownLinkTwo" href="#/release"> Release </a> <br/>
-
             </div>
         </DropdownButton>
             <button onClick={nextPage}> Next Page</button>
@@ -75,8 +73,6 @@ else if (page > 0 && page < maxPageLength){
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={() => setSort("Reviews")} id="dropdownLinkTwo" href="#/reviews"> Reviews </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={() => setSort("Store")} id="dropdownLinkTwo" href="#/store"> Store </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={() => setSort("Title")} id="dropdownLinkTwo" href="#/title"> Title </a> <br/>
-                <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={() => setSort("Release")} id="dropdownLinkTwo" href="#/release"> Release </a> <br/>
-                <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={() => setSort("Release")} id="dropdownLinkTwo" href="#/release"> Release </a> <br/>
             </div>
         </DropdownButton>
            <button onClick={prevPage}>Previous Page</button> <button onClick={nextPage}> Next Page</button>
