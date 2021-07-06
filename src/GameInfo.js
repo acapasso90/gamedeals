@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from "react";
-import StoreInfo from "./StoreInfo";
 
 export default function GameInfo(props){
 
-
+console.log(props.data)
     const [loaded, setLoaded] = useState(false);
     const title = props.data.title;
     const thumb = props.data.thumb;
-    const img = <img src={thumb} alt={title} />
+    const img = <img src={thumb} alt={title} className="gameImage" />
     const salePrice = props.data.salePrice;
     const fullPrice = props.data.normalPrice;
     const savings = Math.round(10*props.data.savings)/10;
@@ -16,13 +15,15 @@ export default function GameInfo(props){
     const steamRatingPercent = props.data.steamRatingPercent;
     const metaCriticRating = props.data.metacriticScore;
     const page = props.page;
-    const steamID = props.data.steamAppID;
     const formattedTitle = title.replace(/ /g, '_');
+    let gameID = props.data.dealID;
+    let gameURL = `https://www.cheapshark.com/redirect?dealID=${gameID}`;
 
-    const store = props.data.storeID;
+
 
 
     useEffect(() => {
+        setLoaded(false);
         const title = props.data.title;
         const thumb = props.data.thumb;
         const img = <img src={thumb} alt={title} />
@@ -34,22 +35,24 @@ export default function GameInfo(props){
         const steamRatingPercent = props.data.steamRatingPercent;
         const metaCriticRating = props.data.metacriticScore;
         const page = props.page;
-        const steamID = props.data.steamAppID;
-        const formattedTitle = title.replace(/ /g, '_');
-        const steamURL = `https://store.steampowered.com/app/${steamID}/${formattedTitle}`;
-        setLoaded(true);
+let gameID = props.data.dealID;
+let gameURL = `https://www.cheapshark.com/redirect?dealID=${gameID}`;
       }, [props]); 
 
-    return(
+ 
+
+
+
+   return(
     <div className="GameInfo">
-        <h2> {title} </h2>
-        {img}
-        <ul>
-        <li>   <StoreInfo data={store} title={formattedTitle} steam={steamID} /></li>
-            <li>Price: ${salePrice} / <span className="fullPrice"> Full Price ${fullPrice} </span></li>
-            <li>Currently {savings}% off</li>
-            <li> Steam Rating: {steamRatingSummary} / {steamRatingPercent}% out of {steamNumberOfRatings} ratings</li>
-            <li> Metacritic Rating: {metaCriticRating}% </li>
-        </ul>
-    </div>)
+    <h2> {title} </h2>
+    {img}
+    <ul>
+    <li> <a href={gameURL} target="_blank"><button>Buy Now</button></a> </li>
+        <li>Price: ${salePrice} / <span className="fullPrice"> Full Price ${fullPrice} </span></li>
+        <li>Currently {savings}% off</li>
+        <li> Steam Rating: {steamRatingSummary} / {steamRatingPercent}% out of {steamNumberOfRatings} ratings</li>
+        <li> Metacritic Rating: {metaCriticRating}% </li>
+    </ul>
+</div>)
 }

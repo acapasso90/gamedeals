@@ -2,6 +2,18 @@
   text-align: center;
 }
 
+.GameInfo {background-color: rgb(129, 127, 127);
+border-radius: 4px;
+width: 260px;
+margin: 0.7% 1.4%;}
+
+.GameInfoContainer {display: flex;
+flex-direction: row; 
+flex-wrap: wrap;
+max-width: 100%;}
+
+.gameImage {width: 120px;}
+
 .StoreInfo p {margin-top: 0;}
 .storeLogo {height: 40px;
 position: relative;

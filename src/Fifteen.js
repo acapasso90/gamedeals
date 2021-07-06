@@ -28,10 +28,19 @@ function SearchPrices(){
 }
 
 useEffect(() => {
+    let mounted = true;
     let apiURL = `https://www.cheapshark.com/api/1.0/deals?upperPrice=15&sortBy=${sort}&pageSize=35&pageNumber=${page}`;
-    axios.get(apiURL).then(SetPrices)
-  }, [page, sort]); 
-  
+    const cancelTokenSource = axios.CancelToken.source(); 
+    if (mounted) {
+      axios.get(apiURL, {
+        cancelToken: cancelTokenSource.token
+      }).then(SetPrices).catch(error => {
+        console.log(error);
+      });}
+    return function cleanup() {
+      mounted = false
+      cancelTokenSource.cancel();
+  }}, [page, sort]);
 
 function nextPage(){
 setPage(page+1);
@@ -59,8 +68,10 @@ if (page === 0){
             </div>
         </DropdownButton>
             <button onClick={nextPage}> Next Page</button>
+            <div className="GameInfoContainer">
             {gameData.slice(0, arrayLength).map(function(gameNum, index){
             return(<GameInfo data={gameNum} page={page} key={index} />)})}
+        </div>
         </div>
     )}
 else if (page > 0 && page < maxPageLength){
@@ -77,9 +88,10 @@ else if (page > 0 && page < maxPageLength){
             </div>
         </DropdownButton>
            <button onClick={prevPage}>Previous Page</button> <button onClick={nextPage}> Next Page</button>
-
+           <div className="GameInfoContainer">
             {gameData.slice(0, arrayLength).map(function(gameNum, index){
             return(<GameInfo data={gameNum}  page={page} key={index} />)})}
+        </div>
         </div>
     )
 }
@@ -97,8 +109,10 @@ else {
             </div>
         </DropdownButton>
             <button onClick={prevPage}>Previous Page</button> 
-            {gameData.slice(0, arrayLength).map(function(gameNum, index){
-            return(<GameInfo data={gameNum}  page={page} key={index} />)})}
+            <div className="GameInfoContainer">
+                {gameData.slice(0, arrayLength).map(function(gameNum, index){
+                return(<GameInfo data={gameNum}  page={page} key={index} />)})}
+            </div>
         </div>
     )
 }
