@@ -43,7 +43,7 @@ export default function GameInfo(props){
     return(
     <div className="GameInfo">
         <h2> {title} </h2>
-        <img src={thumb} alt={title} /> <br/>
+        {img}
         <ul>
         <li>   <StoreInfo data={store} title={formattedTitle} steam={steamID} /></li>
             <li>Price: ${salePrice} / <span className="fullPrice"> Full Price ${fullPrice} </span></li>

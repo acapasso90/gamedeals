@@ -31,6 +31,7 @@ useEffect(() => {
     let apiURL = `https://www.cheapshark.com/api/1.0/deals?upperPrice=15&sortBy=${sort}&pageSize=35&pageNumber=${page}`;
     axios.get(apiURL).then(SetPrices)
   }, [page, sort]); 
+  
 
 function nextPage(){
 setPage(page+1);
@@ -105,6 +106,6 @@ else {
    else { SearchPrices();
     return(
     <div className="Fifteen">
-        15
+         "loading"
     </div>)}
 }

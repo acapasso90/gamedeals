@@ -1,5 +1,4 @@
 import React from "react";
-import Fifteen from "./Fifteen";
 import { BrowserRouter as Router, Route, NavLink, Switch} from "react-router-dom";
 
 export default function PriceSelect(){

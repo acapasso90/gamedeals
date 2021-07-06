@@ -2,6 +2,7 @@ import './App.css';
 import PriceSelect from "./PriceSelect";
 import { BrowserRouter as Router, Route, NavLink, Switch} from "react-router-dom";
 import Fifteen from './Fifteen';
+import GameSearch from './GameSearch';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Switch>
           <Route path="/" exact component={PriceSelect} />
           <Route path="/under15" component={Fifteen} />
+          <Route path="/game" component={GameSearch} />
       </Switch>
     </div>
   </Router>

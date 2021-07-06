@@ -5,7 +5,6 @@ import StoreData from "./StoreData";
 export default function StoreInfo(props){
 let id = props.data;
 const [loaded, setLoaded] = useState(false);
-const [storeID, setStoreID] = useState('');
 const [storeData, setStoreData] = useState('');
 const [length, setLength] = useState('');
 let title = props.title;
@@ -21,12 +20,23 @@ setLength(response.data.length);
 
 function searchStores(){
     let apiURL = `https://www.cheapshark.com/api/1.0/stores`;
-    axios.get(apiURL).then(setData) 
-}
+    axios.get(apiURL).then(setData).catch(error => {
+      console.log(error);
+    });    
+} 
+
+
+
 
 useEffect(() => {
+
+  const cancelTokenSource = axios.CancelToken.source();
     let apiURL = `https://www.cheapshark.com/api/1.0/stores`;
-    axios.get(apiURL).then(setData)
+  axios.get(apiURL, {
+      cancelToken: cancelTokenSource.token
+    }).then(setData).catch(error => {
+      console.log(error);
+    });
   }, [props]); 
 
 if(loaded){
