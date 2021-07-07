@@ -68,11 +68,6 @@ function setReviews(){
     setLoaded(false);
 }
 
-function setStore(){
-    setSort("Store");
-    setLoaded(false);
-
-}
 
 function setTitle(){
     setSort("Title");
@@ -86,14 +81,13 @@ function setTitle(){
 if (loaded){
 if (page === 0){
     return (
-        <div className="Fifteen">
+        <div className="GamesBelow">
             <h1> Games currently below $15</h1> 
             <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
             <div className="dropdownColumnSort">
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Price </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setSavings} id="dropdownLinkTwo" href="#/sale"> Sale </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setReviews} id="dropdownLinkTwo" href="#/reviews"> Reviews </a> <br/>
-                <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setStore} id="dropdownLinkTwo" href="#/store"> Store </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setTitle} id="dropdownLinkTwo" href="#/title"> Title </a> <br/>
             </div>
         </DropdownButton>
@@ -106,14 +100,13 @@ if (page === 0){
     )}
 else if (page > 0 && page < maxPageLength){
     return (
-        <div className="Fifteen">
+        <div className="GamesBelow">
             <h1> Games currently below $15</h1>
             <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
             <div className="dropdownColumnSort">
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Price </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setSavings} id="dropdownLinkTwo" href="#/sale"> Sale </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setReviews} id="dropdownLinkTwo" href="#/reviews"> Reviews </a> <br/>
-                <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setStore} id="dropdownLinkTwo" href="#/store"> Store </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setTitle} id="dropdownLinkTwo" href="#/title"> Title </a> <br/>
             </div>
         </DropdownButton>
@@ -127,14 +120,13 @@ else if (page > 0 && page < maxPageLength){
 }
 else {
     return (
-        <div className="Fifteen">
+        <div className="GamesBelow">
             <h1> Games currently below $15</h1>
             <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
             <div className="dropdownColumnSort">
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Price </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setSavings} id="dropdownLinkTwo" href="#/sale"> Sale </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setReviews} id="dropdownLinkTwo" href="#/reviews"> Reviews </a> <br/>
-                <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setStore} id="dropdownLinkTwo" href="#/store"> Store </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setTitle} id="dropdownLinkTwo" href="#/title"> Title </a> <br/>
             </div>
         </DropdownButton>
@@ -149,14 +141,13 @@ else {
 }
    else { SearchPrices();
     return(
-        <div className="Fifteen">
+        <div className="GamesBelow">
         <h1> Games currently below $15</h1>
         <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
         <div className="dropdownColumnSort">
         <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Price </a> <br/>
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setSavings} id="dropdownLinkTwo" href="#/sale"> Sale </a> <br/>
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setReviews} id="dropdownLinkTwo" href="#/reviews"> Reviews </a> <br/>
-            <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setStore} id="dropdownLinkTwo" href="#/store"> Store </a> <br/>
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setTitle} id="dropdownLinkTwo" href="#/title"> Title </a> <br/>
         </div>
     </DropdownButton>
