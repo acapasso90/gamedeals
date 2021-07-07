@@ -8,6 +8,7 @@ export default function PriceSelect(){
 
     return(
     <div className="PriceSelect">
+  <NavLink to="/under10"> Under $10</NavLink> <br />
   <NavLink to="/under15"> Under $15 </NavLink> <br />
     </div>)
 }

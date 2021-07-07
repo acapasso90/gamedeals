@@ -4,7 +4,7 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import GameInfo from "./GameInfo";
 import Loader from "react-loader-spinner";
 
-export default function Fifteen(){
+export default function Ten(){
 const [sort, setSort] = useState('Savings')
 const [loaded, setLoaded] = useState(false);
 const [arrayLength, setArrayLength] = useState();
@@ -23,14 +23,14 @@ setLoaded(true);
 }
 
 function SearchPrices(){
-    let apiURL = `https://www.cheapshark.com/api/1.0/deals?upperPrice=15&sortBy=${sort}&pageSize=35&pageNumber=${page}`;
+    let apiURL = `https://www.cheapshark.com/api/1.0/deals?upperPrice=10&sortBy=${sort}&pageSize=35&pageNumber=${page}`;
     axios.get(apiURL).then(SetPrices)
 
 }
 
 useEffect(() => {
     let mounted = true;
-    let apiURL = `https://www.cheapshark.com/api/1.0/deals?upperPrice=15&sortBy=${sort}&pageSize=35&pageNumber=${page}`;
+    let apiURL = `https://www.cheapshark.com/api/1.0/deals?upperPrice=10&sortBy=${sort}&pageSize=35&pageNumber=${page}`;
     const cancelTokenSource = axios.CancelToken.source(); 
     if (mounted) {
       axios.get(apiURL, {
@@ -87,7 +87,7 @@ if (loaded){
 if (page === 0){
     return (
         <div className="Fifteen">
-            <h1> Games currently below $15</h1> 
+            <h1> Games currently below $10</h1> 
             <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
             <div className="dropdownColumnSort">
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Price </a> <br/>
@@ -150,7 +150,7 @@ else {
    else { SearchPrices();
     return(
         <div className="Fifteen">
-        <h1> Games currently below $15</h1>
+        <h1> Games currently below $10</h1>
         <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
         <div className="dropdownColumnSort">
         <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Price </a> <br/>

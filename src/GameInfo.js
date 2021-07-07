@@ -1,8 +1,6 @@
 import React, {useEffect, useState} from "react";
 
 export default function GameInfo(props){
-
-console.log(props.data)
     const [loaded, setLoaded] = useState(false);
     const title = props.data.title;
     const thumb = props.data.thumb;
@@ -14,8 +12,8 @@ console.log(props.data)
     const steamNumberOfRatings = props.data.steamRatingCount;
     const steamRatingPercent = props.data.steamRatingPercent;
     const metaCriticRating = props.data.metacriticScore;
-    const page = props.page;
     const formattedTitle = title.replace(/ /g, '_');
+    const store = props.data.storeID;
     let gameID = props.data.dealID;
     let gameURL = `https://www.cheapshark.com/redirect?dealID=${gameID}`;
 
@@ -34,7 +32,7 @@ console.log(props.data)
         const steamNumberOfRatings = props.data.steamRatingCount;
         const steamRatingPercent = props.data.steamRatingPercent;
         const metaCriticRating = props.data.metacriticScore;
-        const page = props.page;
+        const store = props.data.storeID;
 let gameID = props.data.dealID;
 let gameURL = `https://www.cheapshark.com/redirect?dealID=${gameID}`;
       }, [props]); 
@@ -45,7 +43,7 @@ let gameURL = `https://www.cheapshark.com/redirect?dealID=${gameID}`;
 
    return(
     <div className="GameInfo">
-    <h2> {title} </h2>
+    <h2 className="gameTitle"> {title} </h2>
     {img}
     <ul>
     <li> <a href={gameURL} target="_blank"><button>Buy Now</button></a> </li>
