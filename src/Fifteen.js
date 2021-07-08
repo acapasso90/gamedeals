@@ -8,10 +8,10 @@ export default function Fifteen(){
 const [sort, setSort] = useState('Savings')
 const [loaded, setLoaded] = useState(false);
 const [arrayLength, setArrayLength] = useState();
-const [gameData, setGameData] = useState();
+const [gameData, setGameData] = useState("");
 const [maxPageLength, setMaxPageLength] = useState();
 const [page, setPage] = useState(0);
-
+const [storeInfo, SetStoreInfo] = useState("");
 
 
 function SetPrices(response){
@@ -19,7 +19,6 @@ setMaxPageLength(response.headers["x-total-page-count"])
 setGameData(response.data);
 setArrayLength(response.data.length);
 setLoaded(true);
-
 }
 
 function SearchPrices(){
@@ -94,7 +93,7 @@ if (page === 0){
             <button onClick={nextPage}> Next Page</button>
             <div className="GameInfoContainer">
             {gameData.slice(0, arrayLength).map(function(gameNum, index){
-            return(<GameInfo data={gameNum} loading={loaded} key={index} />)})}
+            return(<GameInfo data={gameNum} loading={loaded} store={storeInfo} key={index} />)})}
         </div>
         </div>
     )}
@@ -113,7 +112,7 @@ else if (page > 0 && page < maxPageLength){
            <button onClick={prevPage}>Previous Page</button> <button onClick={nextPage}> Next Page</button>
            <div className="GameInfoContainer">
             {gameData.slice(0, arrayLength).map(function(gameNum, index){
-            return(<GameInfo data={gameNum} loading={loaded}   key={index} />)})}
+            return(<GameInfo data={gameNum} loading={loaded} store={storeInfo}   key={index} />)})}
         </div>
         </div>
     )
@@ -133,7 +132,7 @@ else {
             <button onClick={prevPage}>Previous Page</button> 
             <div className="GameInfoContainer">
                 {gameData.slice(0, arrayLength).map(function(gameNum, index){
-                return(<GameInfo data={gameNum} loading={loaded}   key={index} />)})}
+                return(<GameInfo data={gameNum} loading={loaded} store={storeInfo}   key={index} />)})}
             </div>
         </div>
     )
