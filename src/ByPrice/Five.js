@@ -99,8 +99,8 @@ if (page === 0){
             <div className="GameInfoContainer">
             {gameData.slice(0, arrayLength).map(function(gameNum, index){
             return(<GameInfo data={gameNum} loading={loaded} key={index} />)})}
-            <button onClick={nextPage}> Next Page</button>
         </div>
+        <button onClick={nextPage}> Next Page</button>
         </div>
     )}
 else if (page > 0 && page < maxPageLength){
@@ -120,8 +120,8 @@ else if (page > 0 && page < maxPageLength){
            <div className="GameInfoContainer">
             {gameData.slice(0, arrayLength).map(function(gameNum, index){
             return(<GameInfo data={gameNum} loading={loaded}   key={index} />)})}
-            <button onClick={prevPage}>Previous Page</button> <button onClick={nextPage}> Next Page</button>
         </div>
+        <button onClick={prevPage}>Previous Page</button> <button onClick={nextPage}> Next Page</button>
         </div>
     )
 }
@@ -141,9 +141,9 @@ else {
             <button onClick={prevPage}>Previous Page</button> 
             <div className="GameInfoContainer">
                 {gameData.slice(0, arrayLength).map(function(gameNum, index){
-                return(<GameInfo data={gameNum} loading={loaded}   key={index} />)})}
-            <button onClick={prevPage}>Previous Page</button> 
+                return(<GameInfo data={gameNum} loading={loaded}   key={index} />)})} 
             </div>
+            <button onClick={prevPage}>Previous Page</button>
         </div>
     )
 }

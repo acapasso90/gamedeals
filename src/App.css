@@ -4,17 +4,19 @@
 
 .GameInfo {background-color: rgb(129, 127, 127);
 border-radius: 4px;
-width: 260px;
+width: 320px;
 margin: 0.7% 1.4%;}
 
 .GameInfoContainer {display: flex;
 flex-direction: row; 
 flex-wrap: wrap;
+justify-content: center;
 max-width: 100%;}
 
 .gameImage {width: 120px;}
 
-.gameTitle {width: 100%;}
+.gameTitle {width: 100%;
+white-space: normal;}
 
 .StoreInfo p {margin-top: 0;}
 

@@ -11,7 +11,6 @@ const [arrayLength, setArrayLength] = useState();
 const [gameData, setGameData] = useState("");
 const [maxPageLength, setMaxPageLength] = useState();
 const [page, setPage] = useState(0);
-const [storeInfo, SetStoreInfo] = useState("");
 
 
 function SetPrices(response){
@@ -100,9 +99,9 @@ if (page === 0){
             <button onClick={nextPage}> Next Page</button>
             <div className="GameInfoContainer">
             {gameData.slice(0, arrayLength).map(function(gameNum, index){
-            return(<GameInfo data={gameNum} loading={loaded} store={storeInfo} key={index} />)})}
-            <button onClick={nextPage}> Next Page</button>
+            return(<GameInfo data={gameNum} loading={loaded}  key={index} />)})}
         </div>
+        <button onClick={nextPage}> Next Page</button>
         </div>
     )}
 else if (page > 0 && page < maxPageLength){
@@ -121,9 +120,9 @@ else if (page > 0 && page < maxPageLength){
            <button onClick={prevPage}>Previous Page</button> <button onClick={nextPage}> Next Page</button>
            <div className="GameInfoContainer">
             {gameData.slice(0, arrayLength).map(function(gameNum, index){
-            return(<GameInfo data={gameNum} loading={loaded} store={storeInfo}   key={index} />)})}
-            <button onClick={prevPage}>Previous Page</button> <button onClick={nextPage}> Next Page</button>
+            return(<GameInfo data={gameNum} loading={loaded}    key={index} />)})}
         </div>
+        <button onClick={prevPage}>Previous Page</button> <button onClick={nextPage}> Next Page</button>
         </div>
     )
 }
@@ -138,15 +137,14 @@ else {
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setReviews} id="dropdownLinkTwo" href="#/reviews"> Reviews </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setTitle} id="dropdownLinkTwo" href="#/title"> Title </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setStore} id="dropdownLinkTwo" href="#/store"> Store </a> <br/>
-
             </div>
         </DropdownButton>
             <button onClick={prevPage}>Previous Page</button> 
             <div className="GameInfoContainer">
                 {gameData.slice(0, arrayLength).map(function(gameNum, index){
-                return(<GameInfo data={gameNum} loading={loaded} store={storeInfo}   key={index} />)})}
-                 <button onClick={prevPage}>Previous Page</button> 
+                return(<GameInfo data={gameNum} loading={loaded}    key={index} />)})}
             </div>
+            <button onClick={prevPage}>Previous Page</button> 
         </div>
     )
 }

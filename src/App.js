@@ -11,6 +11,8 @@ import GameSearch from './GameSearch';
 import EpicGames from "./ByStore/EpicGames";
 import HumbleGames from "./ByStore/HumbleGames";
 import FanaticalGames from "./ByStore/FanaticalGames";
+import GOGGames from "./ByStore/GOGGames";
+import IndieGalaGames from "./ByStore/IndieGalaGames";
 import ScrollTop from "./ScrollTop";
 
 function App() {
@@ -32,6 +34,8 @@ function App() {
           <Route path="/epicgames" component={EpicGames} />
           <Route path="/humblestore"  component={HumbleGames} />
           <Route path="/fanatical"  component={FanaticalGames} />
+          <Route path="/gog" component={GOGGames} />
+          <Route path="/indiegala" component={IndieGalaGames} />
       </Switch>
     </div>
   </Router>

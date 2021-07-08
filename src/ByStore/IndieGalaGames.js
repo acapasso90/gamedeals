@@ -4,7 +4,7 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import GameInfo from "../GameInfo";
 import Loader from "react-loader-spinner";
 
-export default function EpicGames(){
+export default function IndieGalaGames(){
 const [sort, setSort] = useState('Savings')
 const [loaded, setLoaded] = useState(false);
 const [arrayLength, setArrayLength] = useState();
@@ -22,14 +22,14 @@ setLoaded(true);
 }
 
 function SearchPrices(){
-    let apiURL = `https://www.cheapshark.com/api/1.0/deals?storeID=25&?onSale=true?&sortBy=${sort}&pageNumber=${page}`;
+    let apiURL = `https://www.cheapshark.com/api/1.0/deals?storeID=30&?onSale=true?&sortBy=${sort}&pageNumber=${page}`;
     axios.get(apiURL).then(SetPrices)
 
 }
 
 useEffect(() => {
     let mounted = true;
-    let apiURL = `https://www.cheapshark.com/api/1.0/deals?storeID=25&?onSale=true?&sortBy=${sort}&pageNumber=${page}`;
+    let apiURL = `https://www.cheapshark.com/api/1.0/deals?storeID=30&?onSale=true?&sortBy=${sort}&pageNumber=${page}`;
     const cancelTokenSource = axios.CancelToken.source(); 
     if (mounted) {
       axios.get(apiURL, {
@@ -86,7 +86,7 @@ if (loaded){
 if (page === 0){
     return (
         <div className="GamesBelow">
-            <h1> EpicGames Games Currently on Sale</h1> 
+            <h1> IndieGala Games Currently on Sale</h1> 
             <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
             <div className="dropdownColumnSort">
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Low Price </a> <br/>
@@ -94,6 +94,7 @@ if (page === 0){
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setReviews} id="dropdownLinkTwo" href="#/reviews"> Reviews </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setTitle} id="dropdownLinkTwo" href="#/title"> Title </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setStore} id="dropdownLinkTwo" href="#/store"> Store </a> <br/>
+
             </div>
         </DropdownButton>
             <button onClick={nextPage}> Next Page</button>
@@ -107,7 +108,7 @@ if (page === 0){
 else if (page > 0 && page < maxPageLength){
     return (
         <div className="GamesBelow">
-            <h1> EpicGames Games Currently on Sale</h1> 
+            <h1> IndieGala Games Currently on Sale</h1> 
             <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
             <div className="dropdownColumnSort">
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Low Price </a> <br/>
@@ -115,7 +116,6 @@ else if (page > 0 && page < maxPageLength){
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setReviews} id="dropdownLinkTwo" href="#/reviews"> Reviews </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setTitle} id="dropdownLinkTwo" href="#/title"> Title </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setStore} id="dropdownLinkTwo" href="#/store"> Store </a> <br/>
-
             </div>
         </DropdownButton>
            <button onClick={prevPage}>Previous Page</button> <button onClick={nextPage}> Next Page</button>
@@ -130,7 +130,7 @@ else if (page > 0 && page < maxPageLength){
 else {
     return (
         <div className="GamesBelow">
-            <h1> EpicGames Games Currently on Sale</h1> 
+            <h1> IndieGala Games Currently on Sale</h1> 
             <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
             <div className="dropdownColumnSort">
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Low Price </a> <br/>
@@ -153,11 +153,11 @@ else {
    else { SearchPrices();
     return(
         <div className="GamesBelow">
-            <h1> EpicGames Games Currently on Sale</h1> 
+            <h1> IndieGala Games Currently on Sale</h1> 
         <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
         <div className="dropdownColumnSort">
         <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Low Price </a> <br/>
-            <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setSavings} id="dropdownLinkTwo" href="#/sale"> Savings </a> <br/>
+                <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setSavings} id="dropdownLinkTwo" href="#/sale"> Savings </a> <br/>
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setReviews} id="dropdownLinkTwo" href="#/reviews"> Reviews </a> <br/>
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setTitle} id="dropdownLinkTwo" href="#/title"> Title </a> <br/>
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setStore} id="dropdownLinkTwo" href="#/store"> Store </a> <br/>
