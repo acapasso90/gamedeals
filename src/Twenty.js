@@ -4,14 +4,14 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import GameInfo from "./GameInfo";
 import Loader from "react-loader-spinner";
 
-export default function Fifteen(){
+export default function Twenty(){
 const [sort, setSort] = useState('Savings')
 const [loaded, setLoaded] = useState(false);
 const [arrayLength, setArrayLength] = useState();
-const [gameData, setGameData] = useState("");
+const [gameData, setGameData] = useState();
 const [maxPageLength, setMaxPageLength] = useState();
 const [page, setPage] = useState(0);
-const [storeInfo, SetStoreInfo] = useState("");
+
 
 
 function SetPrices(response){
@@ -19,17 +19,18 @@ setMaxPageLength(response.headers["x-total-page-count"])
 setGameData(response.data);
 setArrayLength(response.data.length);
 setLoaded(true);
+
 }
 
 function SearchPrices(){
-    let apiURL = `https://www.cheapshark.com/api/1.0/deals?upperPrice=15&sortBy=${sort}&pageSize=35&pageNumber=${page}`;
+    let apiURL = `https://www.cheapshark.com/api/1.0/deals?upperPrice=20&sortBy=${sort}&pageSize=35&pageNumber=${page}`;
     axios.get(apiURL).then(SetPrices)
 
 }
 
 useEffect(() => {
     let mounted = true;
-    let apiURL = `https://www.cheapshark.com/api/1.0/deals?upperPrice=15&sortBy=${sort}&pageSize=35&pageNumber=${page}`;
+    let apiURL = `https://www.cheapshark.com/api/1.0/deals?upperPrice=20&sortBy=${sort}&pageSize=35&pageNumber=${page}`;
     const cancelTokenSource = axios.CancelToken.source(); 
     if (mounted) {
       axios.get(apiURL, {
@@ -67,6 +68,11 @@ function setReviews(){
     setLoaded(false);
 }
 
+function setStore(){
+    setSort("Store");
+    setLoaded(false);
+
+}
 
 function setTitle(){
     setSort("Title");
@@ -74,19 +80,12 @@ function setTitle(){
 
 }
 
-function setStore(){
-    setSort("Store");
-    setLoaded(false);
-
-}
-
-
 
 if (loaded){
 if (page === 0){
     return (
         <div className="GamesBelow">
-            <h1> Games currently below $15</h1> 
+            <h1> Games currently below $20</h1> 
             <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
             <div className="dropdownColumnSort">
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Low Price </a> <br/>
@@ -94,20 +93,19 @@ if (page === 0){
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setReviews} id="dropdownLinkTwo" href="#/reviews"> Reviews </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setTitle} id="dropdownLinkTwo" href="#/title"> Title </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setStore} id="dropdownLinkTwo" href="#/store"> Store </a> <br/>
-
             </div>
         </DropdownButton>
             <button onClick={nextPage}> Next Page</button>
             <div className="GameInfoContainer">
             {gameData.slice(0, arrayLength).map(function(gameNum, index){
-            return(<GameInfo data={gameNum} loading={loaded} store={storeInfo} key={index} />)})}
+            return(<GameInfo data={gameNum} loading={loaded} key={index} />)})}
         </div>
         </div>
     )}
 else if (page > 0 && page < maxPageLength){
     return (
         <div className="GamesBelow">
-            <h1> Games currently below $15</h1>
+            <h1> Games currently below $20</h1>
             <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
             <div className="dropdownColumnSort">
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Low Price </a> <br/>
@@ -115,13 +113,12 @@ else if (page > 0 && page < maxPageLength){
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setReviews} id="dropdownLinkTwo" href="#/reviews"> Reviews </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setTitle} id="dropdownLinkTwo" href="#/title"> Title </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setStore} id="dropdownLinkTwo" href="#/store"> Store </a> <br/>
-
             </div>
         </DropdownButton>
            <button onClick={prevPage}>Previous Page</button> <button onClick={nextPage}> Next Page</button>
            <div className="GameInfoContainer">
             {gameData.slice(0, arrayLength).map(function(gameNum, index){
-            return(<GameInfo data={gameNum} loading={loaded} store={storeInfo}   key={index} />)})}
+            return(<GameInfo data={gameNum} loading={loaded}   key={index} />)})}
         </div>
         </div>
     )
@@ -129,7 +126,7 @@ else if (page > 0 && page < maxPageLength){
 else {
     return (
         <div className="GamesBelow">
-            <h1> Games currently below $15</h1>
+            <h1> Games currently below $20</h1>
             <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
             <div className="dropdownColumnSort">
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Low Price </a> <br/>
@@ -137,13 +134,12 @@ else {
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setReviews} id="dropdownLinkTwo" href="#/reviews"> Reviews </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setTitle} id="dropdownLinkTwo" href="#/title"> Title </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setStore} id="dropdownLinkTwo" href="#/store"> Store </a> <br/>
-
             </div>
         </DropdownButton>
             <button onClick={prevPage}>Previous Page</button> 
             <div className="GameInfoContainer">
                 {gameData.slice(0, arrayLength).map(function(gameNum, index){
-                return(<GameInfo data={gameNum} loading={loaded} store={storeInfo}   key={index} />)})}
+                return(<GameInfo data={gameNum} loading={loaded}   key={index} />)})}
             </div>
         </div>
     )
@@ -152,7 +148,7 @@ else {
    else { SearchPrices();
     return(
         <div className="GamesBelow">
-        <h1> Games currently below $15</h1>
+        <h1> Games currently below $20</h1>
         <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
         <div className="dropdownColumnSort">
         <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Low Price </a> <br/>
@@ -160,7 +156,6 @@ else {
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setReviews} id="dropdownLinkTwo" href="#/reviews"> Reviews </a> <br/>
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setTitle} id="dropdownLinkTwo" href="#/title"> Title </a> <br/>
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setStore} id="dropdownLinkTwo" href="#/store"> Store </a> <br/>
-
         </div>
     </DropdownButton>
     <button onClick={prevPage}>Previous Page</button> <button onClick={nextPage}> Next Page</button>

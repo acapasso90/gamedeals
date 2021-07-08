@@ -8,7 +8,11 @@ export default function PriceSelect(){
 
     return(
     <div className="PriceSelect">
+  <NavLink to="/under5"> Under $5 </NavLink> <br />
   <NavLink to="/under10"> Under $10</NavLink> <br />
   <NavLink to="/under15"> Under $15 </NavLink> <br />
+  <NavLink to="/under20"> Under $20 </NavLink> <br />
+
+  <NavLink to="/steamsale"> Steam Games on Sale </NavLink> <br />
     </div>)
 }
