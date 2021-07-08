@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState, useEffect} from "react";
 import axios from "axios";
 import StoreData from "./StoreData";
 
@@ -17,22 +17,21 @@ setLoaded(true);
 setLength(response.data.length);
 }
 
-function searchStores(){
+
+useEffect(() => {
   let mounted = true;
-    let apiURL = `https://www.cheapshark.com/api/1.0/stores`;
-    const cancelTokenSource = axios.CancelToken.source(); 
-    if (mounted){
+  let apiURL = `https://www.cheapshark.com/api/1.0/stores`;
+  const cancelTokenSource = axios.CancelToken.source(); 
+  if (mounted) {
     axios.get(apiURL, {
       cancelToken: cancelTokenSource.token
     }).then(setData).catch(error => {
       console.log(error);
     });}
-    return function cleanup(){
-      mounted = false
-      cancelTokenSource.cancel();
-    }
-} 
-
+  return function cleanup() {
+    mounted = false
+    cancelTokenSource.cancel();
+}}, []);
 
 if(loaded){
   return(
@@ -42,6 +41,6 @@ if(loaded){
             return(<StoreData data={gameNum} id={id} key={index} />)})}
         </span>
     )}
-else {searchStores();
+else {
  return "loading";}
 }

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 
 export default function StoreData(props){
 
@@ -7,7 +7,7 @@ let storeName = props.data.storeName;
 let singleStoreId = props.id;
 
 
-if (storeID == singleStoreId){ 
+if (storeID === singleStoreId){ 
    return(<span className="StoreData">
     <p>Sale at <strong>{storeName}</strong>  <br /></p>
     </span>) }    
