@@ -13,6 +13,10 @@ export default function PriceSelect(){
   <NavLink to="/under15"> Under $15 </NavLink> <br />
   <NavLink to="/under20"> Under $20 </NavLink> <br />
 
-  <NavLink to="/steamsale"> Steam Games on Sale </NavLink> <br />
+  <NavLink to="/steam"> Steam Games on Sale </NavLink> <br />
+  <NavLink to="/gamersgate"> GamersGate Games on Sale </NavLink> <br />
+  <NavLink to="/epicgames"> EpicGames Games on Sale </NavLink> <br />
+  <NavLink to="/humblestore"> Humble Store Games on Sale </NavLink> <br />
+  <NavLink to="/fanatical"> Fanatical Games on Sale </NavLink> <br />
     </div>)
 }

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import GameInfo from "./GameInfo";
+import GameInfo from "../GameInfo";
 import Loader from "react-loader-spinner";
 
 export default function Twenty(){
@@ -23,14 +23,14 @@ setLoaded(true);
 }
 
 function SearchPrices(){
-    let apiURL = `https://www.cheapshark.com/api/1.0/deals?upperPrice=20&sortBy=${sort}&pageSize=35&pageNumber=${page}`;
+    let apiURL = `https://www.cheapshark.com/api/1.0/deals?upperPrice=20&sortBy=${sort}&pageNumber=${page}`;
     axios.get(apiURL).then(SetPrices)
 
 }
 
 useEffect(() => {
     let mounted = true;
-    let apiURL = `https://www.cheapshark.com/api/1.0/deals?upperPrice=20&sortBy=${sort}&pageSize=35&pageNumber=${page}`;
+    let apiURL = `https://www.cheapshark.com/api/1.0/deals?upperPrice=20&sortBy=${sort}&pageNumber=${page}`;
     const cancelTokenSource = axios.CancelToken.source(); 
     if (mounted) {
       axios.get(apiURL, {
@@ -89,7 +89,7 @@ if (page === 0){
             <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
             <div className="dropdownColumnSort">
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Low Price </a> <br/>
-                <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setSavings} id="dropdownLinkTwo" href="#/sale"> Sale </a> <br/>
+                    <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setSavings} id="dropdownLinkTwo" href="#/sale"> Savings </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setReviews} id="dropdownLinkTwo" href="#/reviews"> Reviews </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setTitle} id="dropdownLinkTwo" href="#/title"> Title </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setStore} id="dropdownLinkTwo" href="#/store"> Store </a> <br/>
@@ -99,6 +99,7 @@ if (page === 0){
             <div className="GameInfoContainer">
             {gameData.slice(0, arrayLength).map(function(gameNum, index){
             return(<GameInfo data={gameNum} loading={loaded} key={index} />)})}
+            <button onClick={nextPage}> Next Page</button>
         </div>
         </div>
     )}
@@ -109,7 +110,7 @@ else if (page > 0 && page < maxPageLength){
             <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
             <div className="dropdownColumnSort">
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Low Price </a> <br/>
-                <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setSavings} id="dropdownLinkTwo" href="#/sale"> Sale </a> <br/>
+                    <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setSavings} id="dropdownLinkTwo" href="#/sale"> Savings </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setReviews} id="dropdownLinkTwo" href="#/reviews"> Reviews </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setTitle} id="dropdownLinkTwo" href="#/title"> Title </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setStore} id="dropdownLinkTwo" href="#/store"> Store </a> <br/>
@@ -119,6 +120,7 @@ else if (page > 0 && page < maxPageLength){
            <div className="GameInfoContainer">
             {gameData.slice(0, arrayLength).map(function(gameNum, index){
             return(<GameInfo data={gameNum} loading={loaded}   key={index} />)})}
+            <button onClick={prevPage}>Previous Page</button> <button onClick={nextPage}> Next Page</button>
         </div>
         </div>
     )
@@ -130,7 +132,7 @@ else {
             <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
             <div className="dropdownColumnSort">
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Low Price </a> <br/>
-                <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setSavings} id="dropdownLinkTwo" href="#/sale"> Sale </a> <br/>
+                    <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setSavings} id="dropdownLinkTwo" href="#/sale"> Savings </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setReviews} id="dropdownLinkTwo" href="#/reviews"> Reviews </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setTitle} id="dropdownLinkTwo" href="#/title"> Title </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setStore} id="dropdownLinkTwo" href="#/store"> Store </a> <br/>
@@ -140,6 +142,7 @@ else {
             <div className="GameInfoContainer">
                 {gameData.slice(0, arrayLength).map(function(gameNum, index){
                 return(<GameInfo data={gameNum} loading={loaded}   key={index} />)})}
+            <button onClick={prevPage}>Previous Page</button> 
             </div>
         </div>
     )
@@ -152,7 +155,8 @@ else {
         <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
         <div className="dropdownColumnSort">
         <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Low Price </a> <br/>
-            <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setSavings} id="dropdownLinkTwo" href="#/sale"> Sale </a> <br/>
+                <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setSavings} id="dropdownLinkTwo" href="#/sale"> Savings </a> <br/>
+
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setReviews} id="dropdownLinkTwo" href="#/reviews"> Reviews </a> <br/>
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setTitle} id="dropdownLinkTwo" href="#/title"> Title </a> <br/>
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setStore} id="dropdownLinkTwo" href="#/store"> Store </a> <br/>

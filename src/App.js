@@ -1,13 +1,17 @@
 import './App.css';
 import PriceSelect from "./PriceSelect";
 import { BrowserRouter as Router, Route, NavLink, Switch} from "react-router-dom";
-import SteamGames from "./SteamGames";
-import Twenty from './Twenty';
-import Fifteen from './Fifteen';
-import Ten from "./Ten";
-import Five from "./Five";
+import SteamGames from "./ByStore/SteamGames";
+import GamersGateGames from "./ByStore/GamersGateGames";
+import Twenty from './ByPrice/Twenty';
+import Fifteen from './ByPrice/Fifteen';
+import Ten from "./ByPrice/Ten";
+import Five from "./ByPrice/Five";
 import GameSearch from './GameSearch';
-
+import EpicGames from "./ByStore/EpicGames";
+import HumbleGames from "./ByStore/HumbleGames";
+import FanaticalGames from "./ByStore/FanaticalGames";
+import ScrollTop from "./ScrollTop";
 
 function App() {
   return (
@@ -15,6 +19,7 @@ function App() {
     <div className="App">
       <div className="container">
       </div>
+      <ScrollTop />
       <Switch>
           <Route path="/" exact component={PriceSelect} />
           <Route path="/under20" component={Twenty} />
@@ -22,7 +27,11 @@ function App() {
           <Route path="/under10" component={Ten} />
           <Route path="/under5" component={Five} />
           <Route path="/game" component={GameSearch} />
-          <Route path="/steamsale" component={SteamGames} />
+          <Route path="/steam" component={SteamGames} />
+          <Route path="/gamersgate" component={GamersGateGames} />
+          <Route path="/epicgames" component={EpicGames} />
+          <Route path="/humblestore"  component={HumbleGames} />
+          <Route path="/fanatical"  component={FanaticalGames} />
       </Switch>
     </div>
   </Router>
