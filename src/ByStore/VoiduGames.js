@@ -4,7 +4,7 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import GameInfo from "../GameInfo";
 import Loader from "react-loader-spinner";
 
-export default function GreenManGames(){
+export default function VoiduGames(){
 const [sort, setSort] = useState('Savings')
 const [loaded, setLoaded] = useState(false);
 const [arrayLength, setArrayLength] = useState();
@@ -24,7 +24,7 @@ function SetPrices(response){
 
 useEffect(() => {
     let mounted = true;
-    let apiURL = `https://www.cheapshark.com/api/1.0/deals?storeID=3&?onSale=true?&sortBy=${sort}&pageNumber=${page}`;
+    let apiURL = `https://www.cheapshark.com/api/1.0/deals?storeID=24&?onSale=true?&sortBy=${sort}&pageNumber=${page}`;
     const cancelTokenSource = axios.CancelToken.source(); 
     if (mounted) {
       axios.get(apiURL, {
@@ -81,7 +81,7 @@ if (loaded){
 if (page === 0){
     return (
         <div className="GamesBelow">
-               <h1> Green Man Gaming Games Currently on Sale</h1> 
+            <h1> Voidu Games Currently on Sale</h1> 
             <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
             <div className="dropdownColumnSort">
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Low Price </a> <br/>
@@ -104,7 +104,7 @@ if (page === 0){
 else if (page > 0 && page < maxPageLength){
     return (
         <div className="GamesBelow">
-            <h1> Green Man Gaming Games Currently on Sale</h1> 
+            <h1> Voidu Games Currently on Sale</h1> 
             <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
             <div className="dropdownColumnSort">
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Low Price </a> <br/>
@@ -129,7 +129,7 @@ else if (page > 0 && page < maxPageLength){
 else {
     return (
         <div className="GamesBelow">
-               <h1> Green Man Gaming Games Currently on Sale</h1> 
+            <h1> Voidu Games Currently on Sale</h1> 
             <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
             <div className="dropdownColumnSort">
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Low Price </a> <br/>
@@ -154,7 +154,7 @@ else {
    else {
     return(
         <div className="GamesBelow">
-              <h1> Green Man Gaming Games Currently on Sale</h1> 
+            <h1> Voidu Games Currently on Sale</h1> 
         <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
         <div className="dropdownColumnSort">
         <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Low Price </a> <br/>

@@ -27,15 +27,18 @@ export default function PriceSelect(){
 
         <div className="column">
           <div className="GamesByStore">
-            <NavLink to="/steam"> Steam Games on Sale </NavLink> <br />
-            <NavLink to="/gamersgate"> GamersGate Games on Sale </NavLink> <br />
-            <NavLink to="/epicgames"> EpicGames Games on Sale </NavLink> <br />
-            <NavLink to="/humblestore"> Humble Store Games on Sale </NavLink> <br />
-            <NavLink to="/fanatical"> Fanatical Games on Sale </NavLink> <br />
-            <NavLink to="/gog">GOG Games on Sale</NavLink><br />
-            <NavLink to="/indiegala">Indiegala Games on sale </NavLink><br />
-            <NavLink to="/greenmangaming">green man gaming Games on sale</NavLink> <br />
-            <NavLink to="/gamebillet">gamebillet Games on sale</NavLink> <br />
+            <h2>Games on Sale by Store</h2>
+            <NavLink to="/steam"> Steam </NavLink> <br />
+            <NavLink to="/gamersgate"> GamersGate </NavLink> <br />
+            <NavLink to="/epicgames"> EpicGames </NavLink> <br />
+            <NavLink to="/humblestore"> Humble Store </NavLink> <br />
+            <NavLink to="/fanatical"> Fanatical </NavLink> <br />
+            <NavLink to="/gog">GOG </NavLink><br />
+            <NavLink to="/indiegala">Indiegala </NavLink><br />
+            <NavLink to="/greenmangaming">Green Man Gaming </NavLink> <br />
+            <NavLink to="/gamebillet">GameBillet </NavLink> <br />
+            <NavLink to="/voidu">Voidu </NavLink> < br />
+            <NavLink to="/gamesplanet">Gamesplanet</NavLink>
           </div>
       </div>
     

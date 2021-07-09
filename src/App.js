@@ -25,7 +25,8 @@ import GreenManGames from './ByStore/GreenManGames';
 import FreePC from "./Free/FreePC";
 import FreeBrowser from "./Free/FreeBrowser"
 import GameBilletGames from './ByStore/GameBilletGames';
-
+import VoiduGames from './ByStore/VoiduGames';
+import GamesplanetGames from './ByStore/GamesplanetGames';
 
 
 function App() {
@@ -53,6 +54,8 @@ function App() {
           <Route path="/indiegala" component={IndieGalaGames} />
           <Route path="/greenmangaming" component={GreenManGames} />
           <Route path="/gamebillet" component={GameBilletGames} />
+          <Route path="/voidu" component={VoiduGames} />
+          <Route path="/gamesplanet" component={GamesplanetGames} />
 
           <Route path="/free/pc" component={FreePC} />
           <Route path="/free/browser" component={FreeBrowser} />
