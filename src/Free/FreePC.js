@@ -5,13 +5,15 @@ import FreeGameInfo from "./FreeGameInfo.js";
 
 
 export default function Free(){
-const [sort, setSort] = useState('Savings')
+const [genre, setGenre] = useState("mmorpg");
 const [loaded, setLoaded] = useState(false);
 const [arrayLength, setArrayLength] = useState();
 const [gameData, setGameData] = useState("");
-const [maxPageLength, setMaxPageLength] = useState();
-const [page, setPage] = useState(0);
 
+const genres= ["mmorpg", "shooter", "strategy", "moba", "racing", "sports", "social", "sandbox", "open-world", "survival", "pvp", "pve", "pixel", "voxel", "zombie", "turn-based", 
+  "first-person", "third-Person", "top-down", "tank", "space", "sailing", "side-scroller", "superhero", "permadeath", "card", "battle-royale", "mmo", "mmofps", "mmotps", "3d", "2d", 
+  "anime", "fantasy", "sci-fi", "fighting", "action-rpg", "action", "military", "martial-arts", "flight", "low-spec", "tower-defense", "horror", "mmorts"]
+let genrelength = genres.length;
 
 function SetPrices(response){
 setGameData(response.data);
@@ -24,8 +26,8 @@ useEffect(() => {
     let mounted = true;
     const options = {
       method: 'GET',
-      url: 'https://free-to-play-games-database.p.rapidapi.com/api/games',
-      params: {platform: 'pc'},
+      url: `https://free-to-play-games-database.p.rapidapi.com/api/games?sort-by=release-date`,
+      params: {platform: 'pc', category: genre},
       headers: {
         'x-rapidapi-key': '93f83ef8b7msh9b38461580245cdp109ee1jsnb46c53b2a45d',
         'x-rapidapi-host': 'free-to-play-games-database.p.rapidapi.com'
@@ -41,8 +43,7 @@ useEffect(() => {
     return function cleanup() {
       mounted = false
       cancelTokenSource.cancel();
-  }}, [ ]);
-
+  }}, [genre]);
 
 
 
@@ -50,9 +51,18 @@ if (loaded){
     return (
         <div className="GamesBelow">
             <h1> Currently Free-To-Play PC games</h1>
+            <div className="SortBy">
+              <h4> Sort By Genre</h4>
+              {genres.slice(0, genrelength).map(function(genre, index){
+                function SetThisGenre(){setGenre(genre);}
+                return(<button onClick={SetThisGenre}>{genre}</button>)
+              })}
+            </div>
+            <p className="showingGenre">Showing free <strong>{genre} </strong>games</p>
            <div className="GameInfoContainer">
-            {gameData.slice(0, arrayLength).map(function(gameNum, index){
-            return(<FreeGameInfo data={gameNum} loading={loaded}  key={index} />)})}
+            {gameData.slice(0, arrayLength).map(
+              function(gameNum, index){
+                return(<FreeGameInfo data={gameNum} loading={loaded}  key={index} />)})}
         </div>
         </div>
     )

@@ -26,8 +26,8 @@ export default function PriceSelect(){
           <NavLink to="/indiegala">Indiegala Games on sale </NavLink>          
         </div>
 
-        <div className="Specials">
-          
+        <div className="Free">
+          <NavLink to="/free/pc"> Free PC Games</NavLink> <br />
         </div>
       </div>
 

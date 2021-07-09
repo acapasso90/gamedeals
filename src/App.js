@@ -16,6 +16,7 @@ import IndieGalaGames from "./ByStore/IndieGalaGames";
 import ScrollTop from "./ScrollTop";
 import FreePC from "./Free/FreePC";
 
+
 function App() {
   return (
     <Router>
@@ -25,10 +26,12 @@ function App() {
       <ScrollTop />
       <Switch>
           <Route path="/" exact component={PriceSelect} />
+
           <Route path="/under20" component={Twenty} />
           <Route path="/under15" component={Fifteen} />
           <Route path="/under10" component={Ten} />
           <Route path="/under5" component={Five} />
+
           <Route path="/game" component={GameSearch} />
           <Route path="/steam" component={SteamGames} />
           <Route path="/gamersgate" component={GamersGateGames} />
@@ -37,7 +40,9 @@ function App() {
           <Route path="/fanatical"  component={FanaticalGames} />
           <Route path="/gog" component={GOGGames} />
           <Route path="/indiegala" component={IndieGalaGames} />
+          
           <Route path="/free/pc" component={FreePC} />
+
       </Switch>
     </div>
   </Router>
