@@ -11,21 +11,16 @@ const [arrayLength, setArrayLength] = useState();
 const [gameData, setGameData] = useState("");
 const [maxPageLength, setMaxPageLength] = useState();
 const [page, setPage] = useState(0);
-  
-
+const [formattedMaxPage, setFormattedMaxPage] = useState();
 
 function SetPrices(response){
-setMaxPageLength(response.headers["x-total-page-count"])
-setGameData(response.data);
-setArrayLength(response.data.length);
-setLoaded(true);
-}
-
-function SearchPrices(){
-    let apiURL = `https://www.cheapshark.com/api/1.0/deals?storeID=15&?onSale=true?&sortBy=${sort}&pageNumber=${page}`;
-    axios.get(apiURL).then(SetPrices)
-
-}
+    setMaxPageLength(response.headers["x-total-page-count"])
+    setGameData(response.data);
+    setArrayLength(response.data.length);
+    setLoaded(true);
+    setFormattedMaxPage(parseInt(response.headers["x-total-page-count"], 10) + 1);
+    }
+    
 
 useEffect(() => {
     let mounted = true;
@@ -149,7 +144,7 @@ else {
     )
 }
 }
-   else { SearchPrices();
+   else {
     return(
         <div className="GamesBelow">
             <h1> Fanatical Games Currently on Sale</h1> 

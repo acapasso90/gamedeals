@@ -11,7 +11,7 @@ const [arrayLength, setArrayLength] = useState();
 const [gameData, setGameData] = useState();
 const [maxPageLength, setMaxPageLength] = useState();
 const [page, setPage] = useState(0);
-
+const [formattedMaxPage, setFormattedMaxPage] = useState();
 
 
 function SetPrices(response){
@@ -19,13 +19,7 @@ setMaxPageLength(response.headers["x-total-page-count"])
 setGameData(response.data);
 setArrayLength(response.data.length);
 setLoaded(true);
-
-}
-
-function SearchPrices(){
-    let apiURL = `https://www.cheapshark.com/api/1.0/deals?upperPrice=10&sortBy=${sort}&pageNumber=${page}`;
-    axios.get(apiURL).then(SetPrices)
-
+setFormattedMaxPage(parseInt(response.headers["x-total-page-count"], 10) + 1);
 }
 
 useEffect(() => {
@@ -95,11 +89,13 @@ if (page === 0){
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setStore} id="dropdownLinkTwo" href="#/store"> Store </a> <br/>
             </div>
         </DropdownButton>
+        <p className="currentPage"> Showing page {page+1} of {formattedMaxPage} </p>
             <button onClick={nextPage}> Next Page</button>
             <div className="GameInfoContainer">
             {gameData.slice(0, arrayLength).map(function(gameNum, index){
             return(<GameInfo data={gameNum} loading={loaded} key={index} />)})}
         </div>
+        <p className="currentPage"> Showing page {page+1} of {formattedMaxPage} </p>
         <button onClick={nextPage}> Next Page</button>
         </div>
     )}
@@ -117,11 +113,13 @@ else if (page > 0 && page < maxPageLength){
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setStore} id="dropdownLinkTwo" href="#/store"> Store </a> <br/>
             </div>
         </DropdownButton>
+        <p className="currentPage"> Showing page {page+1} of {formattedMaxPage} </p>
            <button onClick={prevPage}>Previous Page</button> <button onClick={nextPage}> Next Page</button>
            <div className="GameInfoContainer">
             {gameData.slice(0, arrayLength).map(function(gameNum, index){
             return(<GameInfo data={gameNum} loading={loaded}   key={index} />)})}
         </div>
+        <p className="currentPage"> Showing page {page+1} of {formattedMaxPage} </p>
         <button onClick={prevPage}>Previous Page</button> <button onClick={nextPage}> Next Page</button>
         </div>
     )
@@ -140,17 +138,19 @@ else {
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setStore} id="dropdownLinkTwo" href="#/store"> Store </a> <br/>
             </div>
         </DropdownButton>
+        <p className="currentPage"> Showing page {page+1} of {formattedMaxPage} </p>
             <button onClick={prevPage}>Previous Page</button> 
             <div className="GameInfoContainer">
                 {gameData.slice(0, arrayLength).map(function(gameNum, index){
                 return(<GameInfo data={gameNum} loading={loaded}   key={index} />)})}
             </div>
+            <p className="currentPage"> Showing page {page+1} of {formattedMaxPage} </p>
             <button onClick={prevPage}>Previous Page</button> 
         </div>
     )
 }
 }
-   else { SearchPrices();
+   else {
     return(
         <div className="GamesBelow">
         <h1> Games currently below $10</h1>
@@ -163,7 +163,6 @@ else {
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setStore} id="dropdownLinkTwo" href="#/store"> Store </a> <br/>
         </div>
     </DropdownButton>
-    <button onClick={prevPage}>Previous Page</button> <button onClick={nextPage}> Next Page</button>
     <h2> Loading Games</h2>
     <Loader
         type="MutatingDots"

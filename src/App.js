@@ -1,4 +1,6 @@
 import './App.css';
+import "./PriceSelect.css";
+
 import PriceSelect from "./PriceSelect";
 import { BrowserRouter as Router, Route, NavLink, Switch} from "react-router-dom";
 import SteamGames from "./ByStore/SteamGames";
