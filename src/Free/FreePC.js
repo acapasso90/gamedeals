@@ -54,8 +54,15 @@ if (loaded){
             <div className="SortBy">
               <h4> Sort By Genre</h4>
               {genres.slice(0, genrelength).map(function(genre, index){
-                function SetThisGenre(){setGenre(genre);}
-                return(<button onClick={SetThisGenre}>{genre}</button>)
+                function SetThisGenre(){let active = document.querySelector('.active');
+                if (active) {
+               active.classList.remove('active');}
+                  setGenre(genre);
+                  let thisButton = document.getElementById(genre);
+                  thisButton.classList.add('active');
+                }
+                if (index === 0) {return (<button className="active" id={genre} onClick={SetThisGenre}>{genre}</button>)}
+                else {return(<button id={genre} onClick={SetThisGenre}>{genre}</button>)}
               })}
             </div>
             <p className="showingGenre">Showing free <strong>{genre} </strong>games</p>
