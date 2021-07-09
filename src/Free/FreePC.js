@@ -47,8 +47,10 @@ useEffect(() => {
 
 
 
-if (loaded){
-    return (
+
+  if (loaded){
+    if (gameData.status === undefined){
+      return (
         <div className="GamesBelow">
             <h1> Currently Free-To-Play PC games</h1>
             <div className="SortBy">
@@ -61,30 +63,50 @@ if (loaded){
                   let thisButton = document.getElementById(genre);
                   thisButton.classList.add('active');
                 }
-                if (index === 0) {return (<button className="active" id={genre} onClick={SetThisGenre}>{genre}</button>)}
-                else {return(<button id={genre} onClick={SetThisGenre}>{genre}</button>)}
+                if (index === 0) {return (<button className="active" id={genre}  key={index} onClick={SetThisGenre}>{genre}</button>)}
+                else {return(<button id={genre} onClick={SetThisGenre} key={index}>{genre}</button>)}
               })}
             </div>
             <p className="showingGenre">Showing free <strong>{genre} </strong>games</p>
            <div className="GameInfoContainer">
-            {gameData.slice(0, arrayLength).map(
-              function(gameNum, index){
-                return(<FreeGameInfo data={gameNum} loading={loaded}  key={index} />)})}
+           {gameData.slice(0, arrayLength).map(
+                function(gameNum, index){
+                  return(<FreeGameInfo data={gameNum} loading={loaded}  key={index} />)})}
         </div>
         </div>
-    )
-}
-   else {
-    return(
-        <div className="GamesBelow">
-               <h1> Currently Free-To-Play PC games</h1>
-    <h2> Loading Games</h2>
-    <Loader
-        type="MutatingDots"
-        color="#00BFFF"
-        height={100}
-        width={100}
-        timeout={3000} //3 secs
-      />
-    </div>)}
-}
+    )}
+  else return (
+    <div className="GamesBelow">
+                    <h1> Currently Free-To-Play PC games</h1>
+            <div className="SortBy">
+              <h4> Sort By Genre</h4>
+              {genres.slice(0, genrelength).map(function(genre, index){
+                function SetThisGenre(){let active = document.querySelector('.active');
+                if (active) {
+               active.classList.remove('active');}
+                  setGenre(genre);
+                  let thisButton = document.getElementById(genre);
+                  thisButton.classList.add('active');
+                }
+                if (index === 0) {return (<button className="active" id={genre}  key={index} onClick={SetThisGenre}>{genre}</button>)}
+                else {return(<button id={genre} onClick={SetThisGenre} key={index}>{genre}</button>)}
+              })}
+               </div>
+           <h3> Currently no free {genre} games on PC</h3>
+  
+        </div> )}
+  
+     else {
+      return(
+          <div className="GamesBelow">
+                 <h1> Currently Free-To-Play PC games</h1>
+      <h2> Loading Games</h2>
+      <Loader
+          type="MutatingDots"
+          color="#00BFFF"
+          height={100}
+          width={100}
+          timeout={3000} //3 secs
+        />
+      </div>)}
+  }
