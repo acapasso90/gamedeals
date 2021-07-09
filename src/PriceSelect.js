@@ -8,17 +8,29 @@ export default function PriceSelect(){
 
     return(
     <div className="PriceSelect">
-  <NavLink to="/under5"> Under $5 </NavLink> <br />
-  <NavLink to="/under10"> Under $10</NavLink> <br />
-  <NavLink to="/under15"> Under $15 </NavLink> <br />
-  <NavLink to="/under20"> Under $20 </NavLink> <br />
+      <div className="row">
+        <div className="GamesByPrice">
+          <NavLink to="/under5"> Under $5 </NavLink> <br />
+          <NavLink to="/under10"> Under $10</NavLink> <br />
+          <NavLink to="/under15"> Under $15 </NavLink> <br />
+          <NavLink to="/under20"> Under $20 </NavLink> <br />
+        </div>
 
-  <NavLink to="/steam"> Steam Games on Sale </NavLink> <br />
-  <NavLink to="/gamersgate"> GamersGate Games on Sale </NavLink> <br />
-  <NavLink to="/epicgames"> EpicGames Games on Sale </NavLink> <br />
-  <NavLink to="/humblestore"> Humble Store Games on Sale </NavLink> <br />
-  <NavLink to="/fanatical"> Fanatical Games on Sale </NavLink> <br />
-  <NavLink to="/gog">GOG Games on Sale</NavLink>
-  <NavLink to="/indiegala">Indiegala Games on sale </NavLink>
+        <div className="GamesByStore">
+          <NavLink to="/steam"> Steam Games on Sale </NavLink> <br />
+          <NavLink to="/gamersgate"> GamersGate Games on Sale </NavLink> <br />
+          <NavLink to="/epicgames"> EpicGames Games on Sale </NavLink> <br />
+          <NavLink to="/humblestore"> Humble Store Games on Sale </NavLink> <br />
+          <NavLink to="/fanatical"> Fanatical Games on Sale </NavLink> <br />
+          <NavLink to="/gog">GOG Games on Sale</NavLink>  <br />
+          <NavLink to="/indiegala">Indiegala Games on sale </NavLink>          
+        </div>
+
+        <div className="Specials">
+          
+        </div>
+      </div>
+
+
     </div>)
 }

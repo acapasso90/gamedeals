@@ -14,6 +14,7 @@ import FanaticalGames from "./ByStore/FanaticalGames";
 import GOGGames from "./ByStore/GOGGames";
 import IndieGalaGames from "./ByStore/IndieGalaGames";
 import ScrollTop from "./ScrollTop";
+import FreePC from "./Free/FreePC";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path="/fanatical"  component={FanaticalGames} />
           <Route path="/gog" component={GOGGames} />
           <Route path="/indiegala" component={IndieGalaGames} />
+          <Route path="/free/pc" component={FreePC} />
       </Switch>
     </div>
   </Router>
