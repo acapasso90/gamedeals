@@ -2,22 +2,30 @@ import './App.css';
 import "./PriceSelect.css";
 
 import PriceSelect from "./PriceSelect";
+import ScrollTop from "./ScrollTop";
 import { BrowserRouter as Router, Route, NavLink, Switch} from "react-router-dom";
-import SteamGames from "./ByStore/SteamGames";
-import GamersGateGames from "./ByStore/GamersGateGames";
+
+
 import Twenty from './ByPrice/Twenty';
 import Fifteen from './ByPrice/Fifteen';
 import Ten from "./ByPrice/Ten";
 import Five from "./ByPrice/Five";
+
 import GameSearch from './GameSearch';
+
+import SteamGames from "./ByStore/SteamGames";
+import GamersGateGames from "./ByStore/GamersGateGames";
 import EpicGames from "./ByStore/EpicGames";
 import HumbleGames from "./ByStore/HumbleGames";
 import FanaticalGames from "./ByStore/FanaticalGames";
 import GOGGames from "./ByStore/GOGGames";
 import IndieGalaGames from "./ByStore/IndieGalaGames";
-import ScrollTop from "./ScrollTop";
+import GreenManGames from './ByStore/GreenManGames';
+
 import FreePC from "./Free/FreePC";
 import FreeBrowser from "./Free/FreeBrowser"
+import GameBilletGames from './ByStore/GameBilletGames';
+
 
 
 function App() {
@@ -43,6 +51,8 @@ function App() {
           <Route path="/fanatical"  component={FanaticalGames} />
           <Route path="/gog" component={GOGGames} />
           <Route path="/indiegala" component={IndieGalaGames} />
+          <Route path="/greenmangaming" component={GreenManGames} />
+          <Route path="/gamebillet" component={GameBilletGames} />
 
           <Route path="/free/pc" component={FreePC} />
           <Route path="/free/browser" component={FreeBrowser} />

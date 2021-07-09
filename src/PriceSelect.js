@@ -32,8 +32,10 @@ export default function PriceSelect(){
             <NavLink to="/epicgames"> EpicGames Games on Sale </NavLink> <br />
             <NavLink to="/humblestore"> Humble Store Games on Sale </NavLink> <br />
             <NavLink to="/fanatical"> Fanatical Games on Sale </NavLink> <br />
-            <NavLink to="/gog">GOG Games on Sale</NavLink>  <br />
-            <NavLink to="/indiegala">Indiegala Games on sale </NavLink>          
+            <NavLink to="/gog">GOG Games on Sale</NavLink><br />
+            <NavLink to="/indiegala">Indiegala Games on sale </NavLink><br />
+            <NavLink to="/greenmangaming">green man gaming Games on sale</NavLink> <br />
+            <NavLink to="/gamebillet">gamebillet Games on sale</NavLink> <br />
           </div>
       </div>
     
