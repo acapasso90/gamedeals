@@ -79,7 +79,8 @@ if (loaded){
 if (page === 0){
     return (
         <div className="GamesBelow">
-            <h1> Games currently below $10</h1> 
+            <h1> Games currently below $10</h1>
+            <p className="sortedBy">sorted by {sort} </p>
             <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
             <div className="dropdownColumnSort">
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Low Price </a> <br/>
@@ -103,6 +104,7 @@ else if (page > 0 && page < maxPageLength){
     return (
         <div className="GamesBelow">
             <h1> Games currently below $10</h1>
+            <p className="sortedBy">sorted by {sort} </p>
             <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
             <div className="dropdownColumnSort">
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Low Price </a> <br/>
@@ -128,6 +130,7 @@ else {
     return (
         <div className="GamesBelow">
             <h1> Games currently below $10</h1>
+            <p className="sortedBy">sorted by {sort} </p>
             <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
             <div className="dropdownColumnSort">
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Low Price </a> <br/>
@@ -154,6 +157,7 @@ else {
     return(
         <div className="GamesBelow">
         <h1> Games currently below $10</h1>
+        <p className="sortedBy">sorted by {sort} </p>
         <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
         <div className="dropdownColumnSort">
         <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Low Price </a> <br/>

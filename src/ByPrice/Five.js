@@ -5,7 +5,7 @@ import GameInfo from "../GameInfo";
 import Loader from "react-loader-spinner";
 
 export default function Five(){
-const [sort, setSort] = useState('Savings')
+const [sort, setSort] = useState('Reviews')
 const [loaded, setLoaded] = useState(false);
 const [arrayLength, setArrayLength] = useState();
 const [gameData, setGameData] = useState();
@@ -79,6 +79,7 @@ if (page === 0){
     return (
         <div className="GamesBelow">
             <h1> Games currently below $5</h1> 
+            <p className="sortedBy">sorted by {sort} </p>
             <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
             <div className="dropdownColumnSort">
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Price </a> <br/>
@@ -103,6 +104,7 @@ else if (page > 0 && page < maxPageLength){
     return (
         <div className="GamesBelow">
             <h1> Games currently below $5</h1>
+            <p className="sortedBy">sorted by {sort} </p>
             <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
             <div className="dropdownColumnSort">
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Price </a> <br/>
@@ -127,6 +129,7 @@ else {
     return (
         <div className="GamesBelow">
             <h1> Games currently below $5</h1>
+            <p className="sortedBy">sorted by {sort} </p>
             <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
             <div className="dropdownColumnSort">
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Price </a> <br/>
@@ -152,6 +155,7 @@ else {
     return(
         <div className="GamesBelow">
         <h1> Games currently below $5</h1>
+        <p className="sortedBy">sorted by {sort} </p>
         <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
         <div className="dropdownColumnSort">
         <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Price </a> <br/>

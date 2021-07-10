@@ -3,6 +3,8 @@ import "./PriceSelect.css";
 
 import PriceSelect from "./PriceSelect";
 import ScrollTop from "./ScrollTop";
+import Header from "./Header";
+
 import { BrowserRouter as Router, Route, NavLink, Switch} from "react-router-dom";
 
 
@@ -10,6 +12,7 @@ import Twenty from './ByPrice/Twenty';
 import Fifteen from './ByPrice/Fifteen';
 import Ten from "./ByPrice/Ten";
 import Five from "./ByPrice/Five";
+import One from "./ByPrice/One";
 
 import GameSearch from './GameSearch';
 
@@ -33,9 +36,10 @@ function App() {
   return (
     <Router>
     <div className="App">
-      <div className="container">
-      </div>
+      <div className="containerApp">
       <ScrollTop />
+      <Header />
+      <div className="components">
       <Switch>
           <Route path="/" exact component={PriceSelect} />
 
@@ -43,8 +47,10 @@ function App() {
           <Route path="/under15" component={Fifteen} />
           <Route path="/under10" component={Ten} />
           <Route path="/under5" component={Five} />
+          <Route path="/under1" component={One} />
 
           <Route path="/game" component={GameSearch} />
+
           <Route path="/steam" component={SteamGames} />
           <Route path="/gamersgate" component={GamersGateGames} />
           <Route path="/epicgames" component={EpicGames} />
@@ -59,7 +65,10 @@ function App() {
 
           <Route path="/free/pc" component={FreePC} />
           <Route path="/free/browser" component={FreeBrowser} />
+      
       </Switch>
+      </div>
+      </div>
     </div>
   </Router>
   );

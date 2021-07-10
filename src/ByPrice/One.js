@@ -4,8 +4,8 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import GameInfo from "../GameInfo";
 import Loader from "react-loader-spinner";
 
-export default function EpicGames(){
-const [sort, setSort] = useState('Savings')
+export default function One(){
+const [sort, setSort] = useState('Reviews')
 const [loaded, setLoaded] = useState(false);
 const [arrayLength, setArrayLength] = useState();
 const [gameData, setGameData] = useState("");
@@ -14,17 +14,16 @@ const [page, setPage] = useState(0);
 const [formattedMaxPage, setFormattedMaxPage] = useState();
 
 function SetPrices(response){
-    setMaxPageLength(response.headers["x-total-page-count"])
-    setGameData(response.data);
-    setArrayLength(response.data.length);
-    setLoaded(true);
-    setFormattedMaxPage(parseInt(response.headers["x-total-page-count"], 10) + 1);
-    }
-    
+setMaxPageLength(response.headers["x-total-page-count"])
+setGameData(response.data);
+setArrayLength(response.data.length);
+setLoaded(true);
+setFormattedMaxPage(parseInt(response.headers["x-total-page-count"], 10) + 1);
+}
 
 useEffect(() => {
     let mounted = true;
-    let apiURL = `https://www.cheapshark.com/api/1.0/deals?storeID=25&?onSale=true?&sortBy=${sort}&pageNumber=${page}`;
+    let apiURL = `https://www.cheapshark.com/api/1.0/deals?upperPrice=1&sortBy=${sort}&pageNumber=${page}`;
     const cancelTokenSource = axios.CancelToken.source(); 
     if (mounted) {
       axios.get(apiURL, {
@@ -81,12 +80,12 @@ if (loaded){
 if (page === 0){
     return (
         <div className="GamesBelow">
-            <h1> EpicGames Games Currently on Sale</h1> 
+            <h1> Games currently below $1 </h1> 
             <p className="sortedBy">sorted by {sort} </p>
             <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
             <div className="dropdownColumnSort">
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Low Price </a> <br/>
-                <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setSavings} id="dropdownLinkTwo" href="#/sale"> Savings </a> <br/>
+                    <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setSavings} id="dropdownLinkTwo" href="#/sale"> Savings </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setReviews} id="dropdownLinkTwo" href="#/reviews"> Reviews </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setTitle} id="dropdownLinkTwo" href="#/title"> Title </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setStore} id="dropdownLinkTwo" href="#/store"> Store </a> <br/>
@@ -96,7 +95,7 @@ if (page === 0){
             <button onClick={nextPage}> Next Page</button>
             <div className="GameInfoContainer">
             {gameData.slice(0, arrayLength).map(function(gameNum, index){
-            return(<GameInfo data={gameNum} loading={loaded}  key={index} />)})}
+            return(<GameInfo data={gameNum} loading={loaded} key={index} />)})}
         </div>
         <p className="currentPage"> Showing page {page+1} of {formattedMaxPage} </p>
         <button onClick={nextPage}> Next Page</button>
@@ -105,23 +104,22 @@ if (page === 0){
 else if (page > 0 && page < maxPageLength){
     return (
         <div className="GamesBelow">
-            <h1> EpicGames Games Currently on Sale</h1> 
+            <h1> Games currently below $1</h1>
             <p className="sortedBy">sorted by {sort} </p>
             <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
             <div className="dropdownColumnSort">
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Low Price </a> <br/>
-                <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setSavings} id="dropdownLinkTwo" href="#/sale"> Savings </a> <br/>
+            <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setSavings} id="dropdownLinkTwo" href="#/sale"> Savings </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setReviews} id="dropdownLinkTwo" href="#/reviews"> Reviews </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setTitle} id="dropdownLinkTwo" href="#/title"> Title </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setStore} id="dropdownLinkTwo" href="#/store"> Store </a> <br/>
-
             </div>
         </DropdownButton>
         <p className="currentPage"> Showing page {page+1} of {formattedMaxPage} </p>
            <button onClick={prevPage}>Previous Page</button> <button onClick={nextPage}> Next Page</button>
            <div className="GameInfoContainer">
             {gameData.slice(0, arrayLength).map(function(gameNum, index){
-            return(<GameInfo data={gameNum} loading={loaded}    key={index} />)})}
+            return(<GameInfo data={gameNum} loading={loaded}  key={index} />)})}
         </div>
         <p className="currentPage"> Showing page {page+1} of {formattedMaxPage} </p>
         <button onClick={prevPage}>Previous Page</button> <button onClick={nextPage}> Next Page</button>
@@ -131,25 +129,27 @@ else if (page > 0 && page < maxPageLength){
 else {
     return (
         <div className="GamesBelow">
-            <h1> EpicGames Games Currently on Sale</h1> 
+            <h1> Games currently below $1</h1>
             <p className="sortedBy">sorted by {sort} </p>
             <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
             <div className="dropdownColumnSort">
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Low Price </a> <br/>
-                <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setSavings} id="dropdownLinkTwo" href="#/sale"> Savings </a> <br/>
+                    <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setSavings} id="dropdownLinkTwo" href="#/sale"> Savings </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setReviews} id="dropdownLinkTwo" href="#/reviews"> Reviews </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setTitle} id="dropdownLinkTwo" href="#/title"> Title </a> <br/>
                 <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setStore} id="dropdownLinkTwo" href="#/store"> Store </a> <br/>
+
             </div>
         </DropdownButton>
         <p className="currentPage"> Showing page {page+1} of {formattedMaxPage} </p>
             <button onClick={prevPage}>Previous Page</button> 
             <div className="GameInfoContainer">
                 {gameData.slice(0, arrayLength).map(function(gameNum, index){
-                return(<GameInfo data={gameNum} loading={loaded}    key={index} />)})}
+                return(<GameInfo data={gameNum} loading={loaded} key={index} />)})}
             </div>
             <p className="currentPage"> Showing page {page+1} of {formattedMaxPage} </p>
             <button onClick={prevPage}>Previous Page</button> 
+
         </div>
     )
 }
@@ -157,8 +157,8 @@ else {
    else {
     return(
         <div className="GamesBelow">
-            <h1> EpicGames Games Currently on Sale</h1> 
-            <p className="sortedBy">sorted by {sort} </p>
+        <h1> Games currently below $1</h1>
+        <p className="sortedBy">sorted by {sort} </p>
         <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
         <div className="dropdownColumnSort">
         <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setPrice} href="#/price"> Low Price </a> <br/>
@@ -166,6 +166,7 @@ else {
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setReviews} id="dropdownLinkTwo" href="#/reviews"> Reviews </a> <br/>
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setTitle} id="dropdownLinkTwo" href="#/title"> Title </a> <br/>
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setStore} id="dropdownLinkTwo" href="#/store"> Store </a> <br/>
+
         </div>
     </DropdownButton>
     <button onClick={prevPage}>Previous Page</button> <button onClick={nextPage}> Next Page</button>

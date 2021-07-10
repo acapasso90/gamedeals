@@ -1,10 +1,20 @@
+a, a:visited {color: #f79bca; 
+text-decoration: none;}
+ 
 .active {background-color: aqua;}
 
-.App {
+body {background-color: #0f0b0e;
   text-align: center;
-}
+  margin: 0;
+  padding: 0;
+  color: #b9dbc7;}
 
-.GameInfo {background-color: rgb(129, 127, 127);
+.components {position: relative;
+  width: 100%;
+margin: 0;
+  top: 140px;}
+
+.GameInfo {background-color: #25332e;
 border-radius: 4px;
 width: 320px;
 margin: 0.7% 1.4%;}
@@ -19,6 +29,40 @@ max-width: 100%;}
 
 .gameTitle {width: 100%;
 white-space: normal;}
+
+.Header {position: fixed;
+background-color: #0F0B0E;
+z-index: 1;
+box-shadow: -1px 0px 8px #18201e;
+margin: 0;
+padding: 0;
+border: none;
+width: 100%;}
+
+
+.Header p {
+  font-size: 4.2rem;
+  float: left;
+  position: relative;
+margin: 0;}
+
+.header .column, .header .row {width: 100%;}
+
+.headerContainer .hidden {position: relative;
+  margin: 0;
+  display: none;
+  box-shadow: -1px 0px 8px #18201e;
+  font-size: 15pt;
+  top: 110px;}
+
+.headerContainer:hover > .Header  {box-shadow: none;
+  border-bottom: 12px solid #0f0b0e;}
+  
+
+.piggyBank {width: 80px;
+  position: relative;
+float: right;}
+
 
 .StoreInfo p {margin-top: 0;}
 

@@ -8,40 +8,48 @@ export default function PriceSelect(){
 
     return(
     <div className="PriceSelect">
-      <div className="row">
+      <div className="PriceSelectrow">
         <div className="column">
-          <div className="Free">
-            <NavLink to="/free/pc"> Free PC Games</NavLink> <br />
-            <NavLink to="/free/browser"> Free Browser Games</NavLink>
-          </div>
+          <h2>Free Games </h2>
+          <ul>
+            <li> <NavLink to="/free/pc"> Free PC Games</NavLink> </li>
+            <li> <NavLink to="/free/browser"> Free Browser Games</NavLink> </li>
+          </ul>
         </div>
 
-        <div className="column">
-          <div className="GamesByPrice">
-            <NavLink to="/under5"> Under $5 </NavLink> <br />
-            <NavLink to="/under10"> Under $10</NavLink> <br />
-            <NavLink to="/under15"> Under $15 </NavLink> <br />
-            <NavLink to="/under20"> Under $20 </NavLink> <br />
-          </div>
-        </div>
+            <div className="column">
+          <h2>Lowest Price by Game </h2>
+          <ul>
+            <li><NavLink to="/game"> Find Lowest Price</NavLink> </li>
+          </ul>
+            </div>
 
-        <div className="column">
-          <div className="GamesByStore">
+            <div className="column">
+          <h2>Games by Price </h2>
+          <ul>
+          <li><NavLink to="/under1"> $1 </NavLink> </li>
+          <li> <NavLink to="/under5"> $5 and under </NavLink> </li>
+          <li> <NavLink to="/under10"> $10 and under</NavLink> </li>
+          <li><NavLink to="/under15">  $15 and under </NavLink> </li>
+          <li> <NavLink to="/under20"> $20 and under</NavLink> </li>
+          </ul>
+            </div>
+
+            <div className="column">
             <h2>Games on Sale by Store</h2>
-            <NavLink to="/steam"> Steam </NavLink> <br />
-            <NavLink to="/gamersgate"> GamersGate </NavLink> <br />
-            <NavLink to="/epicgames"> EpicGames </NavLink> <br />
-            <NavLink to="/humblestore"> Humble Store </NavLink> <br />
-            <NavLink to="/fanatical"> Fanatical </NavLink> <br />
-            <NavLink to="/gog">GOG </NavLink><br />
-            <NavLink to="/indiegala">Indiegala </NavLink><br />
-            <NavLink to="/greenmangaming">Green Man Gaming </NavLink> <br />
-            <NavLink to="/gamebillet">GameBillet </NavLink> <br />
-            <NavLink to="/voidu">Voidu </NavLink> < br />
-            <NavLink to="/gamesplanet">Gamesplanet</NavLink>
+            <ul>
+            <li><NavLink to="/steam"> Steam </NavLink> </li>
+            <li><NavLink to="/gamersgate"> GamersGate </NavLink> </li>
+            <li><NavLink to="/epicgames"> EpicGames </NavLink> </li>
+            <li><NavLink to="/humblestore"> Humble Store </NavLink> </li>
+            <li><NavLink to="/fanatical"> Fanatical </NavLink> </li>
+            <li><NavLink to="/gog">GOG </NavLink></li>
+            <li> <NavLink to="/indiegala">Indiegala </NavLink></li>
+            <li><NavLink to="/greenmangaming">Green Man Gaming </NavLink></li>
+            <li><NavLink to="/gamebillet">GameBillet </NavLink></li>
+            <li> <NavLink to="/voidu">Voidu </NavLink> </li>
+            </ul>
           </div>
-      </div>
-    
       </div>
 
 
