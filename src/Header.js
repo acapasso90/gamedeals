@@ -25,10 +25,10 @@ export default function Header(){
                 <img src={PiggyBank} alt="PiggyBank" className="piggyBank" /> 
         </div>
         <div className="hidden">
-                    <NavLink to="/ByPrice">By Price</NavLink>
-                    <NavLink to="/ByStore">By Store</NavLink>
-                    <NavLink to="/ByGame">By Game</NavLink>
-                    <NavLink to="/FreeGames">Free Games</NavLink>
+                    <NavLink to="/byprice">Games By Price</NavLink>
+                    <NavLink to="/bystore">Games By Store</NavLink>
+                    <NavLink to="/game">Deals By Game</NavLink>
+                    <NavLink to="/byfree">Free Games</NavLink>
                     </div>  
   </div>
 

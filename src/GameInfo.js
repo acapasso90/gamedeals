@@ -31,7 +31,7 @@ export default function GameInfo(props){
     <ul>
     <li> <a href={gameURL} target="_blank"><button>Buy Now</button></a> </li>
     <li> <StoreInfo data={store} /></li>
-        <li>Price: ${salePrice} / <span className="fullPrice"> Full Price ${fullPrice} </span></li>
+        <li className="salePrice">Price: <strong>${salePrice} </strong>/ <span className="fullPrice"> Full Price  <strong>${fullPrice}</strong> </span></li>
         <li>Currently {savings}% off</li>
         <li> Steam Rating: {steamRatingSummary} </li>
         <li> {steamRatingPercent}% out of {steamNumberOfRatings} ratings</li>

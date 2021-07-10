@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import GameInfo from "./GameInfo";
+import Loader from "react-loader-spinner";
+
 
 export default function GameSearch(){
 const [loaded, setLoaded] = useState(false);
@@ -65,6 +67,22 @@ if (loaded){
    else {
     return(
     <div className="GameSearch">
-        "loading"
+                    <h1> Search deals by Game</h1> 
+           <form onSubmit={handleSubmit} >
+               <input type="text" onChange={setGameTitle} autoComplete="off" placeholder="Search by Game Title" /> 
+               <button type="submit" className="submitButton"> 
+                <i className="fas fa-search"></i>
+            </button>
+
+           </form>
+        
+          <h2> Loading Games</h2>
+    <Loader
+        type="MutatingDots"
+        color="#00BFFF"
+        height={100}
+        width={100}
+        timeout={3000} //3 secs
+      />
     </div>)}
 }

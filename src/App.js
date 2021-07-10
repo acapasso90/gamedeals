@@ -1,7 +1,12 @@
 import './App.css';
 import "./PriceSelect.css";
 
+import Home from "./Home";
 import PriceSelect from "./PriceSelect";
+import StoreSelect from "./StoreSelect";
+import FreeSelect from "./FreeSelect";
+
+
 import ScrollTop from "./ScrollTop";
 import Header from "./Header";
 
@@ -41,7 +46,10 @@ function App() {
       <Header />
       <div className="components">
       <Switch>
-          <Route path="/" exact component={PriceSelect} />
+          <Route path="/" exact component={Home} />
+          <Route path="/byprice" component={PriceSelect} />
+          <Route path="/bystore" component={StoreSelect} />
+          <Route path="/byfree" component={FreeSelect} />
 
           <Route path="/under20" component={Twenty} />
           <Route path="/under15" component={Fifteen} />

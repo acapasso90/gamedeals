@@ -55,14 +55,14 @@ if (loaded){
           <div className="SortBy">
             <h4> Sort By Genre</h4>
             {genres.slice(0, genrelength).map(function(genre, index){
-              function SetThisGenre(){let active = document.querySelector('.active');
+              function SetThisGenre(){let active = document.querySelector('.activeCat');
               if (active) {
-             active.classList.remove('active');}
+             active.classList.remove('activeCat');}
                 setGenre(genre);
                 let thisButton = document.getElementById(genre);
-                thisButton.classList.add('active');
+                thisButton.classList.add('activeCat');
               }
-              if (index === 0) {return (<button className="active" id={genre}  key={index} onClick={SetThisGenre}>{genre}</button>)}
+              if (index === 0) {return (<button className="activeCat" id={genre}  key={index} onClick={SetThisGenre}>{genre}</button>)}
               else {return(<button id={genre} onClick={SetThisGenre} key={index}>{genre}</button>)}
             })}
           </div>
@@ -80,14 +80,14 @@ else return (
           <div className="SortBy">
             <h4> Sort By Genre</h4>
             {genres.slice(0, genrelength).map(function(genre, index){
-              function SetThisGenre(){let active = document.querySelector('.active');
+              function SetThisGenre(){let active = document.querySelector('.activeCat');
               if (active) {
-             active.classList.remove('active');}
+             active.classList.remove('activeCat');}
                 setGenre(genre);
                 let thisButton = document.getElementById(genre);
-                thisButton.classList.add('active');
+                thisButton.classList.add('activeCat');
               }
-              if (index === 0) {return (<button className="active" id={genre}  key={index} onClick={SetThisGenre}>{genre}</button>)}
+              if (index === 0) {return (<button className="activeCat" id={genre}  key={index} onClick={SetThisGenre}>{genre}</button>)}
               else {return(<button id={genre} onClick={SetThisGenre} key={index}>{genre}</button>)}
             })}
              </div>

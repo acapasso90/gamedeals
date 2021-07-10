@@ -1,20 +1,26 @@
 a, a:visited {color: #f79bca; 
 text-decoration: none;}
  
-.active {background-color: aqua;}
+.activeCat {background-color: aqua;}
+
 
 body {background-color: #0f0b0e;
+  background-size: 100%;
   text-align: center;
   margin: 0;
   padding: 0;
-  color: #b9dbc7;}
+  color: #e7e3b1;}
+
 
 .components {position: relative;
   width: 100%;
 margin: 0;
   top: 140px;}
 
-.GameInfo {background-color: #25332e;
+.fullPrice {color: rgb(236, 156, 160);
+  text-decoration: line-through;}
+
+.GameInfo {background-color: #553439;
 border-radius: 4px;
 width: 320px;
 margin: 0.7% 1.4%;}
@@ -51,9 +57,13 @@ margin: 0;}
 .headerContainer .hidden {position: relative;
   margin: 0;
   display: none;
+  padding-bottom: 15px;
   box-shadow: -1px 0px 8px #18201e;
   font-size: 15pt;
   top: 110px;}
+
+.hidden a {margin-left: 5%;
+margin-right: 5%;}
 
 .headerContainer:hover > .Header  {box-shadow: none;
   border-bottom: 12px solid #0f0b0e;}
@@ -63,7 +73,7 @@ margin: 0;}
   position: relative;
 float: right;}
 
-
+.salePrice { color: rgb(84, 185, 93);}
 .StoreInfo p {margin-top: 0;}
 
 .row {display: flex;
