@@ -9,6 +9,7 @@ import FreeSelect from "./FreeSelect";
 
 import ScrollTop from "./ScrollTop";
 import Header from "./Header";
+import Footer from "./Footer";
 
 import { BrowserRouter as Router, Route, NavLink, Switch} from "react-router-dom";
 
@@ -75,6 +76,7 @@ function App() {
           <Route path="/free/browser" component={FreeBrowser} />
       
       </Switch>
+      <Footer />
       </div>
       </div>
     </div>
