@@ -12,7 +12,7 @@ export default function StoreSelect(){
 
       
       <div className="column">
-            <h2>Games on Sale by Store</h2>
+            <h2 className="pageHeader">Games on Sale by Store</h2>
             <ul>
             <li><NavLink to="/steam"> Steam </NavLink> </li>
             <li><NavLink to="/gamersgate"> GamersGate </NavLink> </li>

@@ -37,6 +37,7 @@ export default function GameInfo(props){
             </div>
         </li>
         <li>Currently <strong> {savings}% off </strong> </li>
+        <hr />
         <li> Steam Rating: <strong> <div id="steamRating"> {steamRatingSummary}  </div></strong></li>
         <li> {steamRatingPercent}% out of {steamNumberOfRatings} ratings</li>
         <li> Metacritic Rating: {metaCriticRating}% </li>

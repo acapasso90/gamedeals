@@ -47,7 +47,7 @@ function setGameTitle(event){
 if (loaded){
  return (
             <div className="GameSearch">
-            <h1> Search deals by Game</h1> 
+            <h1 className="pageHeader"> Search deals by Game</h1> 
            <form onSubmit={handleSubmit} >
                <input type="text" onChange={setGameTitle} autoComplete="off" placeholder="Search by Game Title" /> 
                <button type="submit" className="submitButton"> 

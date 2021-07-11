@@ -52,7 +52,7 @@ useEffect(() => {
     if (gameData.status === undefined){
       return (
         <div className="GamesBelow">
-            <h1> Free-To-Play PC games</h1>
+            <h1 className="pageHeader"> Free-To-Play PC games</h1>
             <div className="SortBy">
               <h4> Sort By Genre</h4>
               {genres.slice(0, genrelength).map(function(genre, index){
@@ -77,7 +77,7 @@ useEffect(() => {
     )}
   else return (
     <div className="GamesBelow">
-                    <h1> Free-To-Play PC games</h1>
+                    <h1 className="pageHeader"> Free-To-Play PC games</h1>
             <div className="SortBy">
               <h4> Sort By Genre</h4>
               {genres.slice(0, genrelength).map(function(genre, index){
@@ -99,7 +99,7 @@ useEffect(() => {
      else {
       return(
           <div className="GamesBelow">
-                 <h1> Free-To-Play PC games</h1>
+                 <h1 className="pageHeader"> Free-To-Play PC games</h1>
       <h2> Loading Games</h2>
       <Loader
           type="MutatingDots"

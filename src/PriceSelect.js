@@ -11,7 +11,7 @@ export default function PriceSelect(){
       <div className="PriceSelectrow">
 
             <div className="column">
-          <h2>Games by Price </h2>
+          <h2 className="pageHeader">Games by Price </h2>
           <ul>
           <li><NavLink to="/under1"> $1 and under </NavLink> </li>
           <li> <NavLink to="/under5"> $5 and under </NavLink> </li>

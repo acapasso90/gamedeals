@@ -11,7 +11,7 @@ export default function FreeSelect(){
       <div className="PriceSelectrow">
 
       <div className="column">
-          <h2>Free Games </h2>
+          <h2 className="pageHeader">Free Games </h2>
           <ul>
           <li><NavLink to="/free/epic">Free at EpicGames</NavLink></li>
             <li> <NavLink to="/free/pc"> Free PC Games</NavLink> </li>

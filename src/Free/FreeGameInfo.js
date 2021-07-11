@@ -18,6 +18,7 @@ export default function FreeGameInfo(props){
                 <li> {genre}</li>
                 <li> {platform} </li>
                 <li> Released: {release} </li>
+                <hr />
                 <li> {description} </li>
             </ul>
         </div>

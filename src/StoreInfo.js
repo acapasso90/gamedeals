@@ -42,5 +42,5 @@ if(loaded){
         </span>
     )}
 else {
- return "loading";}
+ return "";}
 }

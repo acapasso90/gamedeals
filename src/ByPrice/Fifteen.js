@@ -80,7 +80,7 @@ if (loaded){
 if (page === 0){
     return (
         <div className="GamesBelow">
-            <h1> Games currently below $15</h1> 
+            <h1 className="pageHeader"> Games currently below $15</h1> 
             <p className="sortedBy">sorted by {sort} </p>
             <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
             <div className="dropdownColumnSort">
@@ -104,7 +104,7 @@ if (page === 0){
 else if (page > 0 && page < maxPageLength){
     return (
         <div className="GamesBelow">
-            <h1> Games currently below $15</h1>
+            <h1 className="pageHeader"> Games currently below $15</h1>
             <p className="sortedBy">sorted by {sort} </p>
             <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
             <div className="dropdownColumnSort">
@@ -129,7 +129,7 @@ else if (page > 0 && page < maxPageLength){
 else {
     return (
         <div className="GamesBelow">
-            <h1> Games currently below $15</h1>
+            <h1 className="pageHeader"> Games currently below $15</h1>
             <p className="sortedBy">sorted by {sort} </p>
             <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
             <div className="dropdownColumnSort">
@@ -157,7 +157,7 @@ else {
    else {
     return(
         <div className="GamesBelow">
-        <h1> Games currently below $15</h1>
+        <h1 className="pageHeader">  Games currently below $15</h1>
         <p className="sortedBy">sorted by {sort} </p>
         <DropdownButton id='dropdown-button-drop-down-sort' className="sortDropdown" title='Sort by'>
         <div className="dropdownColumnSort">

@@ -39,7 +39,7 @@ useEffect(() => {
 if (loaded){
     return (
         <div className="GamesBelow">
-            <h1> Games currently Free at EpicGames</h1> 
+            <h1 className="pageHeader"> Games currently Free at EpicGames</h1> 
             <div className="GameInfoContainer">
             {gameData.slice(0, arrayLength).map(function(gameNum, index){
             return(<GameInfo data={gameNum} loading={loaded}  key={index} />)})}
@@ -50,7 +50,7 @@ if (loaded){
    else {
     return(
         <div className="GamesBelow">
-            <h1> Games currently Free at EpicGames</h1> 
+            <h1 className="pageHeader"> Games currently Free at EpicGames</h1> 
     <h2> Loading Games</h2>
     <Loader
         type="MutatingDots"
