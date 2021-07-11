@@ -12,6 +12,7 @@ export default function Home(){
         <div className="column">
           <h2>Free Games </h2>
           <ul>
+            <li><NavLink to="/free/epic">Free at EpicGames</NavLink></li>
             <li> <NavLink to="/free/pc"> Free PC Games</NavLink> </li>
             <li> <NavLink to="/free/browser"> Free Browser Games</NavLink> </li>
           </ul>

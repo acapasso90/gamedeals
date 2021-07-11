@@ -30,12 +30,15 @@ import FanaticalGames from "./ByStore/FanaticalGames";
 import GOGGames from "./ByStore/GOGGames";
 import IndieGalaGames from "./ByStore/IndieGalaGames";
 import GreenManGames from './ByStore/GreenManGames';
-
-import FreePC from "./Free/FreePC";
-import FreeBrowser from "./Free/FreeBrowser"
 import GameBilletGames from './ByStore/GameBilletGames';
 import VoiduGames from './ByStore/VoiduGames';
 import GamesplanetGames from './ByStore/GamesplanetGames';
+
+
+import FreePC from "./Free/FreePC";
+import FreeBrowser from "./Free/FreeBrowser";
+import FreeEpic from "./Free/FreeEpic";
+
 
 
 function App() {
@@ -74,6 +77,7 @@ function App() {
 
           <Route path="/free/pc" component={FreePC} />
           <Route path="/free/browser" component={FreeBrowser} />
+          <Route path="/free/epic" component={FreeEpic} />
       
       </Switch>
       <Footer />
