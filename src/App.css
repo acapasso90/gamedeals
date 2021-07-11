@@ -1,16 +1,19 @@
 a, a:visited {color: #f79bca; 
 text-decoration: none;}
 
-a:hover {color: #ec6fb0}
+a:hover {color: #e7e3b1;}
  
-.activeCat {background-color: #d1659d;}
+.activeCat { background-color: #f17704!important;
+  border: 3px solid #753b04!important;
+  box-shadow: inset -1.2px -1.2px 4px #753b04!important;}
 
 body, .headerContainer .hidden {background-color: #0f0b0e;}
 
 body {
   background-size: 100%;
   font-family: 'Oswald', sans-serif;  background-position-y: 100px;
-  background-image: url('./media/background.png');
+  background-image: url('./media/background2.png');
+  letter-spacing: 1px;
   background-attachment: fixed;
   text-align: center;
   margin: 0;
@@ -19,10 +22,29 @@ body {
   color: #e7e3b1;}
 
 button {
-  background-color: #383838;
+  background-color: #cf6b85; 
   border-radius: 4px;
-  border: 1px solid #e7e3b1;
+  letter-spacing: 2px;
+  color: #18201e;
+  border: 3px solid #893a4d;
+  box-shadow: inset -1.2px -1.2px 4px #883560;
 }
+
+button:hover {   background-color: #e491a7; }
+
+button:active {position: relative;
+top: 2px;}
+
+.SortBy button {font-size: 14.5pt;
+  margin-left: 0.4rem;
+  margin-right: 0.4rem;
+  margin-bottom: 0.3rem;
+  background-color: #e2c956; 
+  border: 3px solid #ad6819;
+  box-shadow: inset -1.2px -1.2px 4px #ad6819;
+}
+
+.SortBy button:hover {  background-color: #e7e3b1;  }
 
 .components {position: relative;
   padding-bottom: 2.5rem;  
@@ -55,7 +77,7 @@ flex-wrap: wrap;
 justify-content: center;
 max-width: 100%;}
 
-.gameImage {width: 180px;}
+.gameImage {width: 200px;}
 
 .gameTitle {width: 100%;
 white-space: normal;}
@@ -75,6 +97,7 @@ width: 100%;}
   font-family: 'Press Start 2P', cursive;
   text-shadow: 3px 3px 5px #383838;
   font-size: 4.2rem;
+  letter-spacing: 3px;
   float: left;
   position: absolute;
   right: 100px;
@@ -117,6 +140,19 @@ float: right;}
 
 .salePrice { color: rgb(84, 185, 93);
 font-weight: bold;}
+
+.scroll-to-top {position: fixed;
+  z-index: 2;
+  right: 0.2rem;
+bottom: 0.1rem;}
+
+.scroll-to-top button {  background-color: #0f0b0e;
+  border-color: #e7e3b1;
+  color: #e7e3b1;}
+
+.SortBy {width: 85%;
+margin-left: auto;
+margin-right: auto;}
 
 .StoreInfo p {margin-top: 0;}
 
