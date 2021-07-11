@@ -1,19 +1,27 @@
 a, a:visited {color: #f79bca; 
 text-decoration: none;}
+
+a:hover {color: #ec6fb0}
  
-.activeCat {background-color: aqua;}
+.activeCat {background-color: #d1659d;}
 
 body, .headerContainer .hidden {background-color: #0f0b0e;}
 
 body {
   background-size: 100%;
-  background-position-y: 100px;
+  font-family: 'Oswald', sans-serif;  background-position-y: 100px;
   background-image: url('./media/background.png');
   background-attachment: fixed;
   text-align: center;
   margin: 0;
+  font-size: 1.5vw;
   padding: 0;
   color: #e7e3b1;}
+
+button {
+  background-color: #383838;
+  border: 1px solid #e7e3b1;
+}
 
 .components {position: relative;
   padding-bottom: 2.5rem;  
@@ -26,7 +34,6 @@ margin: 0;
   .columnPrice {width: 50%;}
 
   footer {position: absolute;
-    background-color: #0F0B0E;
     width: 100%;
     z-index: 1;
   bottom: 0;}
@@ -34,6 +41,7 @@ margin: 0;
 .fullPrice {color: rgb(236, 156, 160);}
 
 .GameInfo {background-color: #383838;
+  padding: 15px;
 border-radius: 4px;
 width: 320px;
 margin: 0.7% 1.4%;}
@@ -52,17 +60,20 @@ white-space: normal;}
 .Header {position: fixed;
 background-color: #0F0B0E;
 z-index: 2;
-box-shadow: -1px 0px 8px #18201e;
+box-shadow: 0px 3px 8px #18201e;
 margin: 0;
+height: 100px;
 padding: 0;
 border: none;
 width: 100%;}
 
 
 .Header p {
+  font-family: 'Press Start 2P', cursive;
   font-size: 4.2rem;
   float: left;
-  position: relative;
+  position: absolute;
+  right: 100px;
 margin: 0;}
 
 .header .column, .header .row {width: 100%;}
@@ -72,13 +83,23 @@ margin: 0;}
   margin: 0;
   display: none;
   padding-bottom: 15px;
-  box-shadow: -1px 0px 8px #18201e;
+  box-shadow: 0px 3px 8px #18201e;
   font-size: 15pt;
   z-index: 1;
-  top: 115px;}
+  animation: 1.2s slide-in normal;
+  animation-fill-mode: forwards;
+  top: 100px;}
+
+@keyframes slide-in { from {top: 20px;}
+to {top: 100px;}
+}
+
+@keyframes slide-out {from {top: 100px;}
+to {top: 20px;}}
 
 .hidden a {margin-left: 5%;
-margin-right: 5%;}
+margin-right: 5%;
+font-size: 1.6vw;}
 
 .headerContainer:hover > .Header  {box-shadow: none;
   border-bottom: 22px solid #0f0b0e;}
@@ -86,6 +107,8 @@ margin-right: 5%;}
 
 .piggyBank {width: 80px;
   position: relative;
+  padding-top: 5px;
+  margin-right: 5px;
 float: right;}
 
 .salePrice { color: rgb(84, 185, 93);

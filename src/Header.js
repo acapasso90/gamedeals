@@ -11,8 +11,11 @@ export default function Header(){
     let hidden = document.querySelector('.hidden');
 
     header.addEventListener("mouseover", e => {
-      hidden.style.display = 'block';});
+      hidden.style.animation = '1.2s slide-in normal';
+      hidden.style.display = 'block';
+    });
       header.addEventListener("mouseout", e => {
+        hidden.style.animation = '1.2s slide-out normal';
         hidden.style.display = 'none';
   }); }, [])
 

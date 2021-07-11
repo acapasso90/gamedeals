@@ -17,13 +17,6 @@ export default function GameInfo(props){
     let gameID = props.data.dealID;
     let gameURL = `https://www.cheapshark.com/redirect?dealID=${gameID}`;
 
-
-
-
-
-
-
-
    return(
     <div className="GameInfo">
     <h2 className="gameTitle"> {title} </h2>
@@ -44,7 +37,7 @@ export default function GameInfo(props){
             </div>
         </li>
         <li>Currently <strong> {savings}% off </strong> </li>
-        <li> Steam Rating: <strong> {steamRatingSummary} </strong></li>
+        <li> Steam Rating: <strong> <div id="steamRating"> {steamRatingSummary}  </div></strong></li>
         <li> {steamRatingPercent}% out of {steamNumberOfRatings} ratings</li>
         <li> Metacritic Rating: {metaCriticRating}% </li>
     </ul>
