@@ -2,7 +2,6 @@ import React from "react";
 import StoreInfo from "./StoreInfo";
 
 export default function GameInfo(props){
-
     const title = props.data.title;
     const thumb = props.data.thumb;
     const img = <img src={thumb} alt={title} className="gameImage" />
@@ -16,14 +15,14 @@ export default function GameInfo(props){
     const store = props.data.storeID;
     let gameID = props.data.dealID;
     let gameURL = `https://www.cheapshark.com/redirect?dealID=${gameID}`;
-
+    
    return(
     <div className="GameInfo">
     <h2 className="gameTitle"> {title} </h2>
     {img}
     <ul>
-    <li> <a href={gameURL} target="_blank"><button>Buy Now</button></a> </li>
     <li> <StoreInfo data={store} /></li>
+    <li> <a href={gameURL} target="_blank"><button>Buy Now</button></a> </li>
         <li className="salePrice">
             <div className="row">
                 <div className="columnPrice">
@@ -36,7 +35,7 @@ export default function GameInfo(props){
                 </div>
             </div>
         </li>
-        <li>Currently <strong> {savings}% off </strong> </li>
+        <li>Currently <strong> <span className="underline">{savings}%</span> off </strong> </li>
         <hr />
         <li> Steam Rating: <strong> <div id="steamRating"> {steamRatingSummary}  </div></strong></li>
         <li> {steamRatingPercent}% out of {steamNumberOfRatings} ratings</li>

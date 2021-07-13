@@ -15,6 +15,7 @@ body {
   background-position-y: 100px;
   background-image: url('./media/background2.png');
   letter-spacing: 1px;
+  text-shadow: 2px 2px 2px #0a0a0a;
   background-attachment: fixed;
   text-align: center;
   margin: 0;
@@ -25,7 +26,7 @@ body {
 button, .GameInfo, .gameImage {border-radius: 4px;}
 
 button, .btn-primary, .btn-check:focus+.btn-primary, .btn-primary:focus {
-  background-color: #cf6b85; 
+  background-color: #e2879f; 
   letter-spacing: 2px;
   color: #18201e;
   border: 3px solid #893a4d;
@@ -33,7 +34,7 @@ button, .btn-primary, .btn-check:focus+.btn-primary, .btn-primary:focus {
 }
 
 .btn-check:active+.btn-primary, .btn-primary:active, .btn-primary:hover, .btn-check:checked+.btn-primary, .btn-primary.active, .btn-primary:active, .show>.btn-primary.dropdown-toggle {   background-color: #e491a7;   border: 3px solid #893a4d;}
-button:hover {   background-color: #e491a7; }
+button:hover {   background-color: #f7a9be; }
 
 
 button:active {position: relative;
@@ -73,7 +74,7 @@ margin: 0;
 
 .fullPrice {color: #ec9ca0;}
 
-.GameInfo {background-color: #383838;
+.GameInfo {background-color: #292929;
   padding: 15px;
 width: 22%;
 margin: 0.7% 1.4%;}
@@ -87,7 +88,8 @@ justify-content: center;
 max-width: 100%;}
 
 .gameImage {width: 260px;
-margin-bottom: 25px;}
+  margin-top: 10px;
+margin-bottom: 15px;}
 
 .gameTitle {width: 100%;
 white-space: normal;}
@@ -145,12 +147,14 @@ font-size: 1.6vw;}
     letter-spacing: 4px;
   color: #d6cf50;}
 
+
 .piggyBank {width: 80px;
   position: relative;
   padding-top: 5px;
   margin-right: 5px;
 float: right;}
 
+.positive {color: rgb(84, 185, 93); }
 .salePrice { color: rgb(84, 185, 93);
 font-weight: bold;}
 
@@ -175,3 +179,6 @@ flex-direction: row;}
 ul {list-style: none;
 margin: 0;
 padding: 0;}
+
+.underline {text-decoration: underline;
+font-size: 20pt;}
