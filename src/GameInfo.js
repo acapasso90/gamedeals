@@ -8,15 +8,17 @@ export default function GameInfo(props){
     const salePrice = props.data.salePrice;
     const fullPrice = props.data.normalPrice;
     const savings = Math.round(10*props.data.savings)/10;
-    const steamRatingSummary = props.data.steamRatingText;
+    let steamRatingSummary = props.data.steamRatingText;
+    if (steamRatingSummary === null){steamRatingSummary = "-"}
     const steamNumberOfRatings = props.data.steamRatingCount;
     const steamRatingPercent = props.data.steamRatingPercent;
     const metaCriticRating = props.data.metacriticScore;
     const store = props.data.storeID;
     let gameID = props.data.dealID;
     let gameURL = `https://www.cheapshark.com/redirect?dealID=${gameID}`;
-    
-   return(
+   let loaded = props.loading;
+
+    return(
     <div className="GameInfo">
     <h2 className="gameTitle"> {title} </h2>
     {img}
@@ -37,7 +39,7 @@ export default function GameInfo(props){
         </li>
         <li>Currently <strong> <span className="underline">{savings}%</span> off </strong> </li>
         <hr />
-        <li> Steam Rating: <strong> <div id="steamRating"> {steamRatingSummary}  </div></strong></li>
+        <li> Steam Rating: <strong> <div id="steamRating" className="steamRating"> {steamRatingSummary}  </div></strong></li>
         <li> {steamRatingPercent}% out of {steamNumberOfRatings} ratings</li>
         <li> Metacritic Rating: {metaCriticRating}% </li>
     </ul>
