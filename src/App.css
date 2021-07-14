@@ -1,3 +1,10 @@
+::selection {
+  background: #7c3044; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #a02848; /* Gecko Browsers */
+}
+
 a, a:visited {color: #f79bca; 
 text-decoration: none;}
 
@@ -19,7 +26,7 @@ body {
   background-attachment: fixed;
   text-align: center;
   margin: 0;
-  font-size: 1.3vw;
+  font-size: 15pt;
   padding: 0;
   color: #e7e3b1;}
 
@@ -57,7 +64,7 @@ top: 2px;}
   min-height: 100vh;
 position: relative;
 margin: 0;
-  top: 165px;}
+  top: 145px;}
 
   .columnPrice {width: 50%;}
 
@@ -74,12 +81,14 @@ margin: 0;
 
 .fullPrice {color: #f34d4d;}
 
-.GameInfo {background-color: #292929;
-  border: 3px solid #383838;
-  box-shadow: inset -1px -1px 12px #1b1b1b;
-  padding: 15px;
+.GameInfo {padding: 15px;
 width: 22%;
-margin: 0.7% 1.4%;}
+min-width: 300px;
+margin: 0.7% 1.4%; 
+background-color: #292929;
+  border: 3px solid #383838;
+  box-shadow: inset -1px -1px 12px #1b1b1b;}
+
 
 .GameInfo button {margin-bottom: 15px;}
 
@@ -90,14 +99,15 @@ flex-wrap: wrap;
 justify-content: center;
 max-width: 100%;}
 
-.gameImage {width: 260px;
+.gameImage {width: 250px;
 margin-top: 10px;
 margin-bottom: 15px;}
 
 .gameTitle {width: 100%;
   height: 100px;
-  color: #e2879f;
 white-space: normal;}
+
+.green {color: green;}
 
 .Header {position: fixed;
 background-color: #0f0f0f;
@@ -106,6 +116,7 @@ box-shadow: 0px 3px 8px #18201e;
 margin: 0;
 height: 100px;
 padding: 0;
+user-select: none;
 border: none;
 width: 100%;}
 
@@ -159,10 +170,14 @@ input {background-color: #0f0f0f;
   color: #e7e3b1;
   border: 2px solid #893a4d;}
 
+  .pageHeaderHome, .pageHeader, .gameTitle {  color: #d1cb5f;}
+
+  .pageHeaderHome {font-size: 26pt;}
+  
   .pageHeader {font-size: 30pt;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     letter-spacing: 4px;
-  color: #d6cf50;}
+}
 
 
 .piggyBank {width: 80px;
@@ -171,7 +186,10 @@ input {background-color: #0f0f0f;
   margin-right: 5px;
 float: right;}
 
+.price {font-size: 18pt;}
+
 .positive {color: rgb(84, 185, 93); }
+
 .salePrice { color: rgb(84, 185, 93);
 font-weight: bold;}
 

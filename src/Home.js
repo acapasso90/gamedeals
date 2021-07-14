@@ -10,7 +10,7 @@ export default function Home(){
     <div className="PriceSelect">
       <div className="PriceSelectrow">
         <div className="column">
-          <h2>Free Games </h2>
+          <h2 className="pageHeaderHome">Free Games </h2>
           <ul>
             <li><NavLink to="/free/epic">Free at EpicGames</NavLink></li>
             <li> <NavLink to="/free/pc"> Free PC Games</NavLink> </li>
@@ -19,14 +19,14 @@ export default function Home(){
         </div>
 
             <div className="column">
-          <h2>Lowest Price by Game </h2>
+          <h2 className="pageHeaderHome">Lowest Price by Game </h2>
           <ul>
             <li><NavLink to="/game"> Find Lowest Price</NavLink> </li>
           </ul>
             </div>
 
             <div className="column">
-          <h2>Games by Price </h2>
+          <h2 className="pageHeaderHome">Games by Price </h2>
           <ul>
           <li><NavLink to="/under1"> $1 and under</NavLink> </li>
           <li> <NavLink to="/under5"> $5 and under </NavLink> </li>
@@ -37,7 +37,7 @@ export default function Home(){
             </div>
 
             <div className="column">
-            <h2>Games on Sale by Store</h2>
+            <h2 className="pageHeaderHome">Games on Sale by Store</h2>
             <ul>
             <li><NavLink to="/steam"> Steam </NavLink> </li>
             <li><NavLink to="/gamersgate"> GamersGate </NavLink> </li>

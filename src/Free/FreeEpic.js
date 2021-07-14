@@ -14,6 +14,7 @@ const [formattedMaxPage, setFormattedMaxPage] = useState();
 function SetPrices(response){
     setMaxPageLength(response.headers["x-total-page-count"])
     setGameData(response.data);
+    console.log(response.data)
     setArrayLength(response.data.length);
     setLoaded(true);
     setFormattedMaxPage(parseInt(response.headers["x-total-page-count"], 10) + 1);
