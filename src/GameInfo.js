@@ -27,18 +27,18 @@ export default function GameInfo(props){
     <ul>
     <li> <StoreInfo data={store} /></li>
     <li> <a href={gameURL} target="_blank"><button>Buy Now</button></a> </li>
-        <li className="salePrice">
-            <div className="row">
-                <div className="columnPrice">
+    <li className="salePrice">
+        <div className="row">
+            <div className="columnPrice">
                 Sale Price: <br />
-                    <span className="price">${salePrice}</span>
-                </div>
+                <span className="price">${salePrice}</span>
+            </div>
                 <div className="columnPrice">
-                <span className="fullPrice"> Full Price: <br />
+                    <span className="fullPrice"> Full Price: <br />
                    <span className="price">${fullPrice} </span> </span>
                 </div>
-            </div>
-        </li>
+        </div>
+    </li>
         <li>Currently <strong> <span className="underline">{savings}%</span> off </strong> </li>
         <hr />
         <li> Steam Rating: <br /><strong> <span className="underline"> {steamRatingSummary}</span> </strong></li>
