@@ -99,7 +99,7 @@ else return (
     return(
         <div className="GamesBelow">
                <h1 className="pageHeader"> Free-To-Play Browser games</h1>
-    <h2> Loading Games</h2>
+    <h2 className="loading"> Loading Games</h2>
     <Loader
         type="MutatingDots"
         color="#00BFFF"

@@ -14,7 +14,6 @@ const [formattedMaxPage, setFormattedMaxPage] = useState();
 function SetPrices(response){
     setMaxPageLength(response.headers["x-total-page-count"])
     setGameData(response.data);
-    console.log(response.data)
     setArrayLength(response.data.length);
     setLoaded(true);
     setFormattedMaxPage(parseInt(response.headers["x-total-page-count"], 10) + 1);
@@ -52,7 +51,7 @@ if (loaded){
     return(
         <div className="GamesBelow">
             <h1 className="pageHeader"> Games currently Free at EpicGames</h1> 
-    <h2> Loading Games</h2>
+    <h2 className="loading"> Loading Games</h2>
     <Loader
         type="MutatingDots"
         color="#00BFFF"

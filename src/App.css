@@ -10,16 +10,16 @@ text-decoration: none;}
 
 a:hover {color: #e7e3b1;}
  
-.activeCat { background-color: #f17704!important;
+.activeCat { background-color: #ee8e34!important;
   border: 3px solid #753b04!important;
   box-shadow: inset -1.2px -1.2px 4px #753b04!important;}
 
 body, .headerContainer .hidden {background-color: #0f0f0f;}
 
 body {
-  background-size: 100%;
+  background-size: 100vw;
   font-family: 'Oswald', sans-serif;  
-  background-position-y: 100px;
+  background-position-y: 12vh;
   background-image: url('./media/background2.png');
   letter-spacing: 1px;
   text-shadow: 2px 2px 2px #0a0a0a;
@@ -43,6 +43,7 @@ button, .btn-primary, .btn-check:focus+.btn-primary, .btn-primary:focus {
 .btn-check:active+.btn-primary, .btn-primary:active, .btn-primary:hover, .btn-check:checked+.btn-primary, .btn-primary.active, .btn-primary:active, .show>.btn-primary.dropdown-toggle {   background-color: #e491a7;   border: 3px solid #893a4d;}
 button:hover {   background-color: #f7a9be; }
 
+.btn-primary:hover {  background-color: #f7a9be;}
 
 button:active {position: relative;
 top: 2px;}
@@ -68,10 +69,15 @@ margin: 0;
 
   .columnPrice {width: 50%;}
 
+  .currentPage {margin-top: 10px;}
+
   .dropdown-menu {background-color: #2f1a23;
     text-align: center;
+    position: relative;
+    left: -30px!important;
     z-index: 1;
     font-size: 15pt;
+    width: 120px;
   border: 2px solid #cf6b85;}
 
   footer {position: absolute;
@@ -148,12 +154,8 @@ margin: 0;}
 
   .headerLink {margin-left: 4%;
     margin-right: 4%;
-    font-size: 1.6vw;}
+    font-size: 16pt;}
 
-    .headerLinkContainer:hover .hiddenCoin {display: inline;}
-
-  .hiddenCoin {height: 40px;
-  display: none;}
 
 @keyframes slide-in { from {top: 20px;}
 to {top: 100px;}
@@ -169,6 +171,8 @@ to {top: 20px;}}
 input {background-color: #0f0f0f;
   color: #e7e3b1;
   border: 2px solid #893a4d;}
+
+  .loading {margin-top: 30px;}
 
   .pageHeaderHome, .pageHeader, .gameTitle {  color: #d1cb5f;}
 
@@ -221,3 +225,22 @@ padding: 0;}
 
 .underline {text-decoration: underline;
 font-size: 20pt;}
+
+@media only screen and (max-width: 1000px) and (min-width: 836px){
+  body {background-image: url('./media/phonebackground.png');
+}}
+
+@media only screen and (max-width: 835px){ 
+
+.hidden {display: none!important;}
+  body {background-image: url('./media/phonebackground.png');}
+
+  .headerContainer:hover > .Header  {box-shadow: 0px 3px 8px #18201e;
+    border-bottom: 22px solid #0f0f0f;}
+
+
+  .Header p {
+    font-size: 7vw;
+  }
+
+}

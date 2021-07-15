@@ -169,7 +169,7 @@ else {
        </DropdownButton>
     <p className="currentPage"> Showing page {page+1} of {formattedMaxPage} </p>
     <button onClick={prevPage}>Previous Page</button> <button onClick={nextPage}> Next Page</button>
-    <h2> Loading Games</h2>
+    <h2 className="loading"> Loading Games</h2>
     <Loader
         type="MutatingDots"
         color="#00BFFF"

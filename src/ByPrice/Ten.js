@@ -167,7 +167,7 @@ else {
             <a style={{ textDecoration: 'none' }} className="dropdownLink" onClick={setStore} id="dropdownLinkTwo" href="#/store"> Store </a> <br/>
         </div>
     </DropdownButton>
-    <h2> Loading Games</h2>
+    <h2 className="loading"> Loading Games</h2>
     <Loader
         type="MutatingDots"
         color="#00BFFF"

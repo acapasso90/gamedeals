@@ -67,7 +67,7 @@ if (loaded){
    else {
     return(
     <div className="GameSearch">
-                    <h1> Search deals by Game</h1> 
+                    <h1 className="pageHeader"> Search deals by Game</h1> 
            <form onSubmit={handleSubmit} >
                <input type="text" onChange={setGameTitle} autoComplete="off" placeholder="Search by Game Title" /> 
                <button type="submit" className="submitButton"> 
@@ -76,7 +76,7 @@ if (loaded){
 
            </form>
         
-          <h2> Loading Games</h2>
+          <h2 className="loading"> Loading Games</h2>
     <Loader
         type="MutatingDots"
         color="#00BFFF"
