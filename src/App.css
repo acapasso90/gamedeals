@@ -241,13 +241,14 @@ font-size: 20pt;}
   box-shadow: inset -1.2px -1.2px 4px #ad6819;}
 
   .dropdown-menu {
-    left: -52px!important;}
+    left: 50px!important;}
 
   .hamburgerDropdown {
    display: inline;
    height: 100px;
    position: fixed;
    top: 42px;
+   right: 100px;
 bottom: 1%;}
 
 .hidden {display: none!important;
@@ -263,8 +264,9 @@ bottom: 1%;}
 
 
   .Header p {
-    font-size: 7vw;
+    font-size: 6.8vw;
 position: absolute;
+width: 60%;
 left: 1%;
   }
 
@@ -294,7 +296,6 @@ max-width: 100%;}
 
 
 .underline, .price { font-size: 15pt;}
-
 .salePrice {margin-bottom: 15px;}
 
 }
