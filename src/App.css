@@ -285,6 +285,10 @@ left: 1%;
 justify-content: flex-start;
 max-width: 100%;}
 
+.PriceSelectrow {flex-direction: column!important;}
+
+.PriceSelectrow .column {margin-bottom: 40px;}
+
 .SortBy button {font-size: 13.5pt;
   margin-left: 0.26rem;
   margin-right: 0.26rem;
