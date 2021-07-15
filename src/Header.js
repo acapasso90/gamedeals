@@ -7,14 +7,11 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 export default function Header(){
 
   const hamburger =  <i className="fas fa-bars" id="hamburgerIcon"></i>;
-  const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
 
-console.log(vw);
   useEffect(() => {
     //Hover effect for Header 
     let header = document.querySelector('.headerContainer');
     let hidden = document.querySelector('.hidden');
-    if(vw > 835){
       header.addEventListener("mouseover", e => {
         hidden.style.animation = '1.2s slide-in normal';
         hidden.style.display = 'block';
@@ -22,7 +19,7 @@ console.log(vw);
         header.addEventListener("mouseout", e => {
           hidden.style.animation = '1.2s slide-out normal';
           hidden.style.display = 'none';
-    })}; }, [])
+    })}, [])
 
 
 
