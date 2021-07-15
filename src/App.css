@@ -17,7 +17,7 @@ a:hover {color: #e7e3b1;}
 body, .headerContainer .hidden {background-color: #0f0f0f;}
 
 body {
-  background-size: 100vw;
+  background-size: 100vw 100vh;
   font-family: 'Oswald', sans-serif;  
   background-position-y: 12vh;
   background-image: url('./media/background2.png');
@@ -229,22 +229,34 @@ padding: 0;}
 font-size: 20pt;}
 
 @media only screen and (max-width: 1000px) and (min-width: 836px){
+
   body {background-image: url('./media/phonebackground.png');
 }}
 
 
 @media only screen and (max-width: 835px){ 
 
+  #dropdown-button-drop-down-hamburger {background-color: #ddc03c;
+    border: 3px solid #ad6819;
+  box-shadow: inset -1.2px -1.2px 4px #ad6819;}
+
+  .dropdown-menu {
+    left: -52px!important;}
+
   .hamburgerDropdown {
    display: inline;
+   height: 100px;
    position: fixed;
-   top: 52px;
+   top: 42px;
 bottom: 1%;}
 
 .hidden {display: none!important;
 }
 
-  body {background-image: url('./media/phonebackground.png');}
+  body {background-image: url('./media/phonebackground.png');
+    font-size: 14pt;
+    letter-spacing: 0.75px;
+}
 
   .headerContainer:hover > .Header  {box-shadow: 0px 3px 8px #18201e;
     border-bottom: 22px solid #0f0f0f;}
@@ -252,6 +264,37 @@ bottom: 1%;}
 
   .Header p {
     font-size: 7vw;
+position: absolute;
+left: 1%;
   }
+
+
+  .gameImage {width: 145px;
+    margin-top: 8px;}
+
+  .GameInfo h2 {font-size: 19pt;}
+
+  .GameInfo {width: 188px;
+    margin-left: auto;
+    margin-right: auto;
+  min-width: 180px;}
+  
+.GameInfoContainer {
+justify-content: flex-start;
+max-width: 100%;}
+
+.SortBy button {font-size: 13.5pt;
+  margin-left: 0.26rem;
+  margin-right: 0.26rem;
+  margin-bottom: 0.34rem;
+  background-color: #e2c956; 
+  border: 3px solid #ad6819;
+  box-shadow: inset -1.2px -1.2px 4px #ad6819;
+}
+
+
+.underline, .price { font-size: 15pt;}
+
+.salePrice {margin-bottom: 15px;}
 
 }

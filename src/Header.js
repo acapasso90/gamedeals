@@ -28,7 +28,7 @@ export default function Header(){
       <div className="Header">
           <p className="headerText">GamerPiggy</p>
           <img src={PiggyBank} alt="PiggyBank" className="piggyBank" />
-              <DropdownButton id='dropdown-button-drop-down-sort' className="hamburgerDropdown" title={hamburger}>
+              <DropdownButton id='dropdown-button-drop-down-hamburger' className="hamburgerDropdown" title={hamburger}>
                 <div className="dropdownColumnHamburger">
                   <NavLink to="/byfree" style={{ textDecoration: 'none' }} className="dropdownLink" > Free Games </NavLink> <br/>
                   <NavLink to="/byprice" style={{ textDecoration: 'none' }} className="dropdownLink" id="dropdownLinkTwo" > Games By Price </NavLink> <br/>
