@@ -47,34 +47,28 @@ function prevPage(){
     setLoaded(false)
     }
 
-function setPrice(){
-    setSort("Price");
-    setLoaded(false);
-}
 
-function setSavings(){
-    setSort("Savings");
-    setLoaded(false);
-}
-
-function setReviews(){
-    setSort("Reviews");
-    setLoaded(false);
-}
-
-
-function setTitle(){
-    setSort("Title");
-    setLoaded(false);
-
-}
-
-function setStore(){
-    setSort("Store");
-    setLoaded(false);
-
-}
-
+    function setPrice(){
+        if (sort !== "Price"){setSort("Price");
+        setLoaded(false);}
+    }
+    
+    function setSavings(){
+        if (sort !== "Savings"){setSort("Savings");
+        setLoaded(false);}
+    }
+    
+    function setReviews(){
+        if (sort !== "Reviews"){setSort("Reviews");
+        setLoaded(false);}
+    }
+    
+    
+    function setTitle(){
+        if (sort !== "Title"){setSort("Title");
+        setLoaded(false);}
+    }
+    
 
 
 if (loaded){

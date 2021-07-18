@@ -48,32 +48,26 @@ function prevPage(){
     }
 
 function setPrice(){
-    setSort("Price");
-    setLoaded(false);
+    if (sort !== "Price"){setSort("Price");
+    setLoaded(false);}
 }
 
 function setSavings(){
-    setSort("Savings");
-    setLoaded(false);
+    if (sort !== "Savings"){setSort("Savings");
+    setLoaded(false);}
 }
 
 function setReviews(){
-    setSort("Reviews");
-    setLoaded(false);
+    if (sort !== "Reviews"){setSort("Reviews");
+    setLoaded(false);}
 }
 
 
 function setTitle(){
-    setSort("Title");
-    setLoaded(false);
-
+    if (sort !== "Title"){setSort("Title");
+    setLoaded(false);}
 }
 
-function setStore(){
-    setSort("Store");
-    setLoaded(false);
-
-}
 
 
 
