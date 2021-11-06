@@ -194,6 +194,14 @@ float: right;}
 
 .price {font-size: 18pt;}
 
+.PriceSelect {background-color: #292929;
+  border: 3px solid #383838;
+  box-shadow: inset -1px -1px 12px #1b1b1b, 2px 2px 10px #020202;
+width: 90%;
+margin-left: auto;
+margin-right: auto;
+padding: 20px 0 20px 0;}
+
 .positive {color: rgb(84, 185, 93); }
 
 .salePrice { color: rgb(84, 185, 93);
@@ -285,7 +293,9 @@ left: 1%;
 justify-content: flex-start;
 max-width: 100%;}
 
-.PriceSelectrow {flex-direction: column!important;}
+
+.PriceSelectrow {flex-direction: column!important;
+}
 
 .PriceSelectrow .column {margin-bottom: 40px;}
 

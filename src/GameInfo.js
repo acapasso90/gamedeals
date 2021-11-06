@@ -26,7 +26,7 @@ export default function GameInfo(props){
     {img}
     <ul>
     <li> <StoreInfo data={store} /></li>
-    <li> <a href={gameURL} target="_blank"><button>Buy Now</button></a> </li>
+    <li> <a href={gameURL} target="_blank" rel="noreferrer"><button>Buy Now</button></a> </li>
     <li className="salePrice">
         <div className="row">
             <div className="columnPrice">
