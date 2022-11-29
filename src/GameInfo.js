@@ -14,10 +14,9 @@ export default function GameInfo(props){
     const steamRatingPercent = props.data.steamRatingPercent;
     const metaCriticRating = props.data.metacriticScore;
     const store = props.data.storeID;
-    let gameID = props.data.dealID;
-    let gameURL = `https://www.cheapshark.com/redirect?dealID=${gameID}`;
-   let loaded = props.loading;
-   let timestamp = props.data.releaseDate;
+    const gameID = props.data.dealID;
+    const gameURL = `https://www.cheapshark.com/redirect?dealID=${gameID}`;
+
 
 
     return(
