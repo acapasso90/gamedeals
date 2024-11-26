@@ -36,11 +36,11 @@ export default function PaginationContainer({
                     <p className="currentPage"> Showing page {currPage + 1} of {totalPages} </p>
                     <div className="d-flex justify-content-center">
                         {currPage !== 0 &&
-                            <Button  variant="danger" onClick={() => updatePage(currPage - 1) }> Prev Page</Button>
+                            <Button className="me-2"  variant="danger" onClick={() => updatePage(currPage - 1) }> Prev Page</Button>
         
                         }
                         {currPage !== totalPages &&
-                            <Button  variant="danger" onClick={() => updatePage(currPage + 1) }> Next Page</Button>
+                            <Button className="ms-2"  variant="danger" onClick={() => updatePage(currPage + 1) }> Next Page</Button>
                         }
                     </div>
                 </span>

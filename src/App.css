@@ -94,6 +94,8 @@ button:not(.price-tooltip):active, .btn-danger:active{
 .dropdown-menu {
     background-color: black;
     border-color: var(--darkpink);
+    max-height: 65vh;
+    overflow-y: auto;
 }
 
 /* Chrome, Safari, Edge, Opera */
