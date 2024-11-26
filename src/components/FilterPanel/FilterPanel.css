@@ -1,0 +1,23 @@
+.filter-panel {
+    z-index: 9999;
+    border-right: 2px solid var(--darkpink); 
+    text-align: left;
+ }
+ 
+
+.filter-panel input, .filter-panel .input-container {
+    max-width: 155px;
+}
+
+.filter-panel input[type="checkbox"] {
+    width: 25px;
+}
+
+input[type="checkbox"]:checked {
+    accent-color: var(--lightpink);
+}
+.filter-panel .error-text {
+    color: var(--lightpink);
+    font-style:italic;
+    min-height: 30px;
+}
