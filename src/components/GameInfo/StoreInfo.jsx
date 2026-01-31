@@ -12,13 +12,12 @@ export default function StoreInfo({storeId = '0'}){
 
     const storeIcon = storeData?.images?.icon;
 
-    const storeImg = storeIcon && <img className="ps-2" src={`https://www.cheapshark.com/${storeData.images.icon}`} alt={storeName}/>;
+    const storeImg = storeIcon && <img className="store-img ps-2" src={`https://www.cheapshark.com/${storeData.images.icon}`} alt={storeName}/>;
 
 
     return(
         <span className="store-display">
-            at {storeName}
-            {storeImg}
+            {storeName} {storeImg}
         </span>
     )
 }

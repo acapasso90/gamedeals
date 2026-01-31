@@ -1,0 +1,143 @@
+:root {
+    --darkgray: rgb(12, 12, 12);
+    --lightpink-hover: #f2d5dd;
+    --lightpink: #f2bac9;
+    --darkpink: #590d22;
+    --yellow: #f4edc9;
+    --dark-yellow: #fbe578;
+    
+}
+
+/* Works on Chrome, Edge, and Safari */
+* {
+    scrollbar-color: var(--lightpink) #292828;
+  }
+  
+
+
+
+
+a, .nav-link, a.dropdown-item {
+    text-decoration: none;
+    color: var(--lightpink)
+}
+
+a:hover, .nav-link:hover, a:focus, .nav-link:focus, a.dropdown-item:focus, a.dropdown-item:hover {
+    color: var(--dark-yellow);
+    background-color: transparent;
+
+}
+
+a.disabled, .nav-link:disabled, .nav-link.disabled, a.dropdown-item.disabled, a.active {
+    cursor: default;
+    color: var(--yellow);
+    text-decoration: underline;
+}
+
+.backdrop {
+    height: 200vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.808);
+    position: absolute;
+    top: -150px;
+    z-index: 9999;
+}
+
+body {
+  font-family: "Special Gothic", sans-serif;
+  background-color: #000000;
+
+  background-size: 100vw;
+  text-align: center;
+  margin: 0;
+  font-size: 14pt;
+  padding: 0;
+  color: var(--yellow);
+}
+
+button, .btn, .close-btn  {
+    background: linear-gradient(135deg, #590d22, #9c133a);
+    outline: none;
+    color: white;
+    border-color: var(--darkpink);
+    box-shadow: inset 2px 2px 1px #9c133a, inset -2px -2px 1px #9c133a;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+
+}
+
+button:hover, .btn:hover, button:focus, .btn:focus {
+    filter:brightness(1.3)
+
+} 
+
+
+button:disabled, .btn-danger.disabled, .btn-danger:disabled {
+    cursor: default;
+    color: white;
+    background-color: var(--darkpink);
+
+} 
+
+button:not(.price-tooltip):active, .btn-danger:active{
+    border-color: var(--darkpink);
+    position: relative;
+    top: 2px;
+    outline: none;
+
+}
+
+.offcanvas, .offcanvas-body, .offcanvas-header {
+    background-color: black;
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+.dropdown-menu {
+    background-color: black;
+    border-color: var(--darkpink);
+    max-height: 65vh;
+    overflow-y: auto;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+
+}
+
+.small-text {
+    font-size: 11pt;
+}
+
+.muted {
+    color: #a3a488;
+    font-weight: 100;
+}
+
+.strike-through {
+    color: #a3a488;
+    font-weight: 100;
+    font-size: 10pt;
+    position: relative;
+    &::before {
+        content: "";
+        left: 0;
+        right: 0;
+        position: absolute;
+        top: 43%;
+        border-bottom: 1.5px solid #a3a488;
+        transform: skewY(-8deg);
+        box-shadow: 0 0 2px #000;
+    }
+}

@@ -23,24 +23,27 @@ export default function PaginationContainer({
     }, [games])
 
     const updatePage = (page) => {
-        setPage(page)
+        setPage((prevParams) => {
+            prevParams.set('page', page);
+            return prevParams;
+        }, {replace: true})
     }
 
     return(
         <> 
-            <GameContainer games={games} {...props}>
+            <GameContainer games={games} pageString={games.length ? `Showing page ${currPage} of ${totalPages}` : ''} {...props}>
                 {children}
             </GameContainer>
             {games.length ?
                 <span className="pt-2 pb-5 ">
-                    <p className="currentPage"> Showing page {currPage + 1} of {totalPages} </p>
+                    <p className="currentPage"> Showing page {currPage} of {totalPages} </p>
                     <div className="d-flex justify-content-center">
-                        {currPage !== 0 &&
-                            <Button className="me-2"  variant="danger" onClick={() => updatePage(currPage - 1) }> Prev Page</Button>
+                        {currPage > 1 &&
+                            <Button className="me-2"  variant="danger" onClick={() => updatePage(parseInt(currPage) - 1) }> Prev Page</Button>
         
                         }
                         {currPage !== totalPages &&
-                            <Button className="ms-2"  variant="danger" onClick={() => updatePage(currPage + 1) }> Next Page</Button>
+                            <Button className="ms-2"  variant="danger" onClick={() => updatePage(parseInt(currPage) + 1) }> Next Page</Button>
                         }
                     </div>
                 </span>

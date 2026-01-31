@@ -1,6 +1,9 @@
-export default function generateFilterTitle(filterData){
-    const {url, filters} = filterData;
-    if (!filters.length){
+import { getFilters } from "./buildFilterUrl";
+
+export default function generateFilterTitle(searchParams){
+    const filters = getFilters(searchParams)
+
+    if (!filters?.length){
         return "All Games"
     }
 
@@ -30,7 +33,7 @@ export default function generateFilterTitle(filterData){
         title += `between $${lowPrice.value} and $${highPrice.value}`
     }
     else {
-        const vals = formattedMap?.map((x) => x.value === "on" ? '' : `${x.key} $${x.value}`)
+        const vals = formattedMap?.map((x) => x.key === 'On Sale' ? '' : `${x.key} $${x.value}`)
         title += vals.flat().join(' ');
     }
     return title;

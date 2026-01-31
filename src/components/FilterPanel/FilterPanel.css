@@ -2,8 +2,15 @@
     z-index: 9999;
     border-right: 2px solid var(--darkpink); 
     text-align: left;
- }
- 
+    padding: 5px 10px;
+}
+
+
+.filter-panel .offcanvas-header {
+    font-size: 20pt;
+    color: var(--lightpink);
+    border-bottom: 1px solid var (--darkpink);
+}
 
 .filter-panel input, .filter-panel .input-container {
     max-width: 155px;

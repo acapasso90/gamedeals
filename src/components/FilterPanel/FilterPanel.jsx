@@ -2,30 +2,28 @@ import {useRef, useState} from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
 import Offcanvas  from 'react-bootstrap/Offcanvas';
-import { OffcanvasBody, OffcanvasHeader } from 'react-bootstrap';
-
+import CloseButton from 'react-bootstrap/CloseButton'
 import './FilterPanel.css';
+import { getFullFilters } from '../../utils/buildFilterUrl';
 
 export default function FilterPanel({
     setFilters = () => console.log('setFilters function must be passed in'),
-    filterData
+    searchParams
 }){
 
-    const {filters} = filterData
+    const filters = getFullFilters(searchParams);
+
     const [copyFilters, setCopyFilters] = useState(filters);
     const [show, setShow] = useState(false);
     const [error, setError] = useState(null);
+
 
     const formRef = useRef();
     formRef.current = copyFilters;
 
     const handleCheck = (e) => {
-        const updatedFilters = 
-        e.target.checked ? 
-        [...copyFilters, {key: 'onSale', value: 'on'}]
-        :
-        copyFilters.filter((x) => x.key !== 'onSale');  
-        setCopyFilters(updatedFilters)
+        const updatedFilters = copyFilters.filter((x) => x.key !== e.target.name);
+        setCopyFilters([...updatedFilters, {key: 'onSale', value: e.target.checked ? '1' : null}])      
     }
 
     const onChange = (e) => {
@@ -36,16 +34,10 @@ export default function FilterPanel({
         }
         else {
             const updatedFilters = copyFilters.filter((x) => x.key !== name);
-            if (value === ""){
-                setCopyFilters(updatedFilters)
-            }
-            else {
-                setCopyFilters([...updatedFilters, {key: name, value: value}])
-            }
+            setCopyFilters([...updatedFilters, {key: name, value: value === "" ? null : value}])
         }
     }
 
-    // TODO - display error if lowerPrice is higher than higher price or vice versa and DO NOT SUBMIT. 
     const handleSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData(e.target)
@@ -53,17 +45,35 @@ export default function FilterPanel({
         let filters = [];
         const lowPrice = copyFilters.find((x) => x.key === "lowerPrice")
         const highPrice = copyFilters.find((x) => x.key === "upperPrice")
-        if (parseInt(lowPrice?.value) < parseInt(highPrice?.value) || !lowPrice || !highPrice){
+        if ( !lowPrice.value || !highPrice.value || lowPrice?.value === '0' || parseInt(lowPrice?.value) < parseInt(highPrice?.value)){
             for (let [key, value] of formData.entries()) {
-                const formattedValue = value === "on" ? '1' : value;
-                if (value !== ""){
-                    filterUrl += filterUrl === '' ? `?${key}=${formattedValue}&` : `${key}=${formattedValue}&`;
+                let formattedValue = value;
+                if (value === 'on'){
+                    value = '1'
+                }
+                if (value === "off"){
+                    value = null;
+                }
+
+                if (formattedValue && formattedValue !== ''){
+                    filterUrl += filterUrl === '' ? `?${key}=${value}&` : `${key}=${value}&`;
                     filters.push({key: key, value: value})
                 }
             }
-            if (filterUrl){
-                setFilters({url: filterUrl, filters: filters});
-            }    
+
+            const filtersToDelete = copyFilters.filter((x) => !x.value);
+            const filtersToAdd = copyFilters.filter((x) => x.value);
+
+            filtersToDelete.forEach((filter) => {
+                searchParams.delete(filter.key);
+            })
+            setFilters((prevParams) => {
+                filtersToAdd.forEach((filter) => 
+                    prevParams.set(filter.key, filter.value)
+                );
+                return prevParams;
+            }, {replace: true})
+        
             setShow(false);
         }
         else {
@@ -80,16 +90,19 @@ export default function FilterPanel({
             {show && 
                 <div className="backdrop" />
             }
-            <Offcanvas show={show} className="filter-panel bg-dark" >
-                <OffcanvasHeader closeButton onHide={() => setShow(false)}>
+            <Offcanvas show={show} className="filter-panel" backdrop >
+                <Offcanvas.Header onHide={() => setShow(false)}>
                     All Filters
-                </OffcanvasHeader>
-                <OffcanvasBody>
+                    <Button variant="danger" onClick={() => setShow(false)}>
+                        <i className="bi bi-x-lg" />
+                    </Button>
+                </Offcanvas.Header>
+                <Offcanvas.Body>
                     <Form ref={formRef} onSubmit={(e) => handleSubmit(e)}> 
                         <div className="d-flex">
                             <label htmlFor="onSale" className="pe-3"> On Sale</label>
                             <input 
-                                checked={copyFilters.find((x) => x.key === "onSale") }
+                                checked={copyFilters?.find((x) => x.key === "onSale")?.value === '1'}
                                 onChange={handleCheck}
                                 name="onSale" 
                                 type="checkbox" 
@@ -99,7 +112,7 @@ export default function FilterPanel({
                         <div className="d-flex text-start justify-content-between"> 
                             <div className="input-container">
                                 <input 
-                                    value={copyFilters.find((x) => x.key === "lowerPrice")?.value ?? ''} 
+                                    value={copyFilters?.find((x) => x.key === "lowerPrice")?.value ?? ''} 
                                     name="lowerPrice" type="number"
                                     onChange={onChange} 
                                     aria-label="min price" 
@@ -111,7 +124,7 @@ export default function FilterPanel({
                             </div>
                             <div className="input-container">
                                <input 
-                                    value={copyFilters.find((x) => x.key === "upperPrice")?.value ?? ''} 
+                                    value={copyFilters?.find((x) => x.key === "upperPrice")?.value ?? ''} 
                                     name="upperPrice" 
                                     type="number" 
                                     onChange={onChange}
@@ -127,7 +140,7 @@ export default function FilterPanel({
                             <Button variant="danger" type="submit">Save Filters</Button>
                         </div>
                     </Form>
-                </OffcanvasBody>
+                </Offcanvas.Body>
             </Offcanvas>
         </div>
     )

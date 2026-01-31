@@ -5,6 +5,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from 'react-bootstrap/Tooltip';
+import { useParams } from "react-router-dom";
 
 export default function GameInfo({data}){
     if (!data){
@@ -18,53 +19,43 @@ export default function GameInfo({data}){
     const gameURL = `https://www.cheapshark.com/redirect?dealID=${dealID}`;
 
     return(
-        <Card bg="dark" className="game-info">
-            <Card.Header>{title}</Card.Header>
+        <div className="game-info">
             <a className="img-link" href={gameURL} target="_blank">
-                <Card.Img variant="top" src={thumb} alt={title} />
+                <img src={thumb} alt={title} className="game-img" />
             </a>
-            <Card.Body>
+            <div className="info">
+                <div className="title-rating">
+                        
+                    <h2>{title}</h2>
+                    <div>
+                    Rated: {steamRatingSummary} 
+                    <div className="small-text muted">based on {parseInt(steamRatingCount ?? 0).toLocaleString()} Steam ratings</div>
+                    </div>
+                </div>
+            
+                <div className="price-col">
+                    <StoreInfo storeId={storeID} />
+                    <div className="price-row">
+                        {savingsPercent > 0 && 
+                            <div className='savings-block'>
+                                -{Math.floor(savingsPercent)}%
+                            </div>
+                        }
+                        <div className="price block">
+                            <div className={savingsPercent ? 'strike-through' : ''}>${normalPrice}</div>
 
-                        <div className="d-flex justify-content-center" >
-                            <div className="pe-1">Current Price:&nbsp;</div>
-
-                            ${salePrice}
-                            <OverlayTrigger placement="right" overlay={
-                                <Tooltip>
-                                    <div className="price-header">Full Price:</div>
-                                    <div className="price">${normalPrice}</div>
-                                </Tooltip>}
-                            >
-                                <button aria-label={`Full Price Info for ${title}`} className="price-tooltip">
-                                    <i className="bi bi-info-circle"></i>
-                                </button>
-
-                            </OverlayTrigger>
+                            {savingsPercent > 0 && <div>${salePrice} </div>}
 
                         </div>
-    
-                        
-                <div>
-                    Currently <span className="underline">{savingsPercent}%</span> off
-                </div>
-                <div className="rating-section mt-2 pt-2">
-                    Rated:
-                    <div className="underline">
-                        {steamRatingSummary}
-                    </div>
                     <div>
-                    
-                        based on {parseInt(steamRatingCount ?? 0).toLocaleString()} Steam ratings
+                        <a href={gameURL} target="_blank" className="m-1">
+                            <Button size="md" variant="danger" aria-label={`Buy ${title}`}>Buy</Button>
+                        </a> 
+                    </div>
                     </div>
                 </div>
-            </Card.Body>
-            <Card.Footer>
-                <a href={gameURL} target="_blank" className="m-1">
-                    <Button size="md" variant="danger" aria-label={`Buy ${title}`}>Buy</Button>
-                </a> 
-                <StoreInfo storeId={storeID} />
-
-            </Card.Footer>
-        </Card>
+            </div>
+           
+        </div>
     )
 }

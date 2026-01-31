@@ -6,44 +6,48 @@ import classNames from "classnames";
 import fetchData from "../utils/fetchData";
 import FilterPanel from "../components/FilterPanel/FilterPanel";
 import generateFilterTitle from "../utils/generateFilterTitle";
+import { useSearchParams } from "react-router-dom";
+import { buildFilterUrl } from "../utils/buildFilterUrl";
+
+const navLinkArray = [
+    {key: "Price", title: "Lowest Price"}, 
+    {key: "Savings", title: "Savings"}, 
+    {key: 'Release', title: "Release"}, 
+    {key: 'Reviews', title: "Reviews"}, 
+    {key: 'Title', title: "Title (Alphabetical)"}
+]
 
 export default function StoreSearch({
     storeId = "0",
     storeName = "Steam",
 }){
-    const [filters, setFilters] = useState({url: '?', filters: []});
+    const [searchParams, setSearchParams] = useSearchParams();
     const [pageTitle, setPageTitle] = useState(`Games`);
+    const [pageAmt, setPageAmt] = useState(0);
 
     const [sort, setSort] = useState('Savings')
     const [gameData, setGameData] = useState("");
-    const [pageNum, setPageNum] = useState(0);
 
-    useEffect(() => {
-        let mounted = true;
-        if (mounted){
-            setPageNum(0)
-        }
-        return function cleanup() {
-            mounted = false
-        }
+    const page = searchParams.get('page') || 1;
 
-    }, [sort, storeId, filters])
+    const filterUrl = buildFilterUrl(searchParams) ?? '?';
+    
 
     useEffect(() => {
         let mounted = true;
         setGameData([])
-        const apiURL = `https://www.cheapshark.com/api/1.0/deals${filters.url}&storeID=${storeId}&sortBy=${sort}&pageNumber=${pageNum}`;
-        fetchData(apiURL, setGameData, mounted)
+        const apiURL = `https://www.cheapshark.com/api/1.0/deals${filterUrl}&storeID=${storeId}&sortBy=${sort}&pageNumber=${parseInt(page) - 1}`;
+        fetchData(apiURL, setGameData, mounted, setPageAmt)
 
         return function cleanup() {
             mounted = false
         }
-    }, [sort, pageNum, storeId, filters]); 
+    }, [sort, page, storeId, filterUrl]); 
 
     useEffect(() => {
         let mounted = true;
 
-        const title = generateFilterTitle(filters)
+        const title = generateFilterTitle(searchParams)
         if (mounted && title !== pageTitle){
             setPageTitle(title)
         }
@@ -51,15 +55,8 @@ export default function StoreSearch({
         return function cleanup() {
             mounted = false
         }
-    }, [filters])
+    }, [searchParams])
 
-    const navLinkArray = [
-        {key: "Price", title: "Lowest Price"}, 
-        {key: "Savings", title: "Savings"}, 
-        {key: 'Release', title: "Release"}, 
-        {key: 'Reviews', title: "Reviews"}, 
-        {key: 'Title', title: "Title (Alphabetical)"}
-    ]
 
     const navLinks = navLinkArray.map((x) => 
         <Dropdown.Item 
@@ -76,9 +73,9 @@ export default function StoreSearch({
     )
 
     return(
-        <PaginationContainer games={gameData} setPage={setPageNum} currPage={pageNum} totalPages={gameData.length} title={`${pageTitle} at ${storeName}`}>
+        <PaginationContainer games={gameData} setPage={setSearchParams} currPage={page} totalPages={pageAmt} title={`${pageTitle} at ${storeName}`}>
                 <div className="sort-row pb-4">
-                    <FilterPanel setFilters={setFilters} filterData={filters} />
+                    <FilterPanel setFilters={setSearchParams} searchParams={searchParams} />
                     <div className="d-flex">
                         <span className="pe-3">
                             Sort By:

@@ -11,37 +11,30 @@ export default function FreeGameInfo({data}){
     const {thumbnail, description, release_date, genre, title, game_url, publisher } = data;
 
     return(
-        <Card bg="dark" className="game-info">
-            <Card.Header>{title}</Card.Header>
+        <div className="game-info">
             <a className="img-link" href={game_url} target="_blank">
-                <Card.Img variant="top" src={thumbnail} alt={title} />
+                <img src={thumbnail} alt={title} className="game-img" />
             </a>
-            <Card.Body>
-                {description}
-                <div className="">
+            <div className="info">
+                <div className="title-rating">
+                    <h2>{title}</h2>
+                    {description}
                     <div>
-                        Genre:
-                        <div className="underline">
-                            {genre}
-                        </div>
+                        Genre: {genre}
                     </div>
-                    <div className="pt-1 d-flex justify-content-center">
-                        Released:
-                        <div className="ps-2">
-                            {new Date(release_date).toLocaleDateString()}
-                        </div>
+                    <div >
+                        Released: {new Date(release_date).toLocaleDateString()}
+                    </div>     
+                </div>
+                <div className="price-col">
+                    <div>
+                        {publisher}
                     </div>
+                    <a href={game_url} target="_blank">
+                        <Button variant="danger" className="me-2">Download</Button>
+                    </a> 
                 </div>
-            </Card.Body>
-            <Card.Footer>
-                <a href={game_url} target="_blank">
-                    <Button variant="danger" className="me-2">Download</Button>
-                </a> 
-                <div>
-                    {publisher}
-                </div>
-
-            </Card.Footer>
-        </Card>
+            </div>
+        </div>
     )
 }
